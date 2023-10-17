@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-7r1=-fk_e1hr#!4%vmw3cv8&au+f(j-++l6y@w!278%6oxz(13
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,10 +132,16 @@ STATIC_ROOT = BASE_DIR/ 'staticfiles'
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
+
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT =os.path.join(os.path.dirname
                          (BASE_DIR),
                          'media')
+
 
 
 
