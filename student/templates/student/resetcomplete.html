@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnit-reset complete</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block title %}Password reset complete{% endblock %}
+
+{% block content %}
+<h1>Password reset complete</h1>
+<p>Your new password has been set. You can log in now on the <a href="{% url 'student:studentlogin' %}">log in page</a>.</p>
+{% endblock %}
+</body>
+</html>

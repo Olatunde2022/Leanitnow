@@ -1,0 +1,348 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Institute</title>    
+    <link rel="stylesheet" href="{% static 'style/index.css'%}">
+    <link rel="stylesheet" href="{% static 'style/contact.css'%}">
+   
+
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<style>
+    body{
+        background-image: url("/static/image/bg.jpg");
+        ontserrat, sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
+    }
+    .new_review{
+        text-align:center;
+        margin-top:20px;  
+        border: 1px solid green;
+        padding:2% 0 2% 15%; 
+        margin-left:10%;
+        display:none;
+        transition: all 400ms ease;
+    }
+.dropdown:hover .new_review {        
+        display:block;        
+}
+    
+</style>
+</head>
+<body>
+    {% include "student/navbar.html" %}
+  
+<header>
+    <div class="container header__container">
+        <div class="header__left">
+            <h1>Grow your skills to advance your career path</h1>
+            <p>Learn tech skills online and start a new career. We offer a variety of courses, from beginner to advanced.
+            Our courses are taught by experienced professionals, Enroll today and start your journey to a better future</p>
+            <a href="{% url 'student:studentsignup' %} " class="btn btn-primary">Get Started</a>
+
+        </div>
+        <div class="header__right">
+            <div class="header_right-image">
+                <img src="{% static 'image/header.svg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Ends -->
+
+
+<section class="categories">
+    <div class="container categories__container">
+        <div class="categories__left">
+            <h1>Categories</h1>
+            <p>Enhance your skills and stay relevant in the ever-evolving tech world with our comprehensive range of learning categories. Upskill with our diverse range of courses and stay ahead of the curve in the age of technology.</p>
+            <a href="" class="btn">Learn More</a>
+        </div>
+        <div class="categories__right">
+            <article class="category">
+                <span class="category__icon"><i class="uil uil-bitcoin-circle"></i></span>
+                <h5>Blockchain</h5>
+                <p><a href="https://youtube.com/@ojetundekabir2046?si=jBKoYVO3iw9nyCNS" target="_blank">You can become a Blockchain developer in 4 months, join our channel on youtube</a></p>
+            </article>        
+            <article class="category">
+                <span class="category__icon"><i class="uil uil-volleyball"></i></span>
+                <h5>Sport</h5>
+                <p>Stay up-to-date on all the latest news and analysis with our award-winning sports blog!</p>
+            </article>        
+            <article class="category">
+                <span class="category__icon"><i class="uil uil-desktop"></i></span>
+                <h5>Entertainment</h5>
+                <p><a href="https://youtube.com/@ojetundekabir2046?si=jBKoYVO3iw9nyCNS" target="_blank">Enjoy every seconds of your free periods to chill, visit our channel today!<br>BYE to boredoms</a></p>
+                </article>        
+            <article class="category">
+                <span class="category__icon"><i class="uil uil-bitcoin-circle"></i></span>
+                <h5>Business</h5>
+                <p>Subscribe today and start learning best innovative skills from our channel!</p>
+            </article>        
+            <article class="category">
+                <span class="category__icon"><i class="uil uil-presentation-plus"></i></span>
+                <h5>Study</h5>
+                <a href="{% url 'student:studentsignup' %} "><p>Study online at our website: Get the education you need, at your own pace. Learnit!</p></a>
+                </article>        
+            <article class="category">
+                <span class="category__icon"><i class="uil uil-monitor"></i></span>
+                <h5>News</h5>
+                <p>If you're looking for the latest news headlines, detailed analysis on any topic</p>
+            </article>        
+        </div>
+    </div>
+</section>
+<!-- Category Ends -->
+
+
+<section class="courses">
+    <h2>Our Popular Courses</h2>
+    <div class="container courses__container">
+        <article class="course">
+            <div class="course__image">
+                <img src="{% static 'image/course1.jpg' %}" alt="">
+            </div>
+            <div class="course__info">
+                <h4>Responsive Social Media Website UI Design</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+            </div>
+        </article>
+
+        <article class="course">
+            <div class="course__image">
+                <img src="{% static 'image/course2.jpg' %}" alt="">
+            </div>
+            <div class="course__info">
+                <h4>Responsive SmartHome Website Design</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+            </div>
+        </article>
+
+        <article class="course">
+            <div class="course__image">
+                <img src="{% static 'image/course3.jpg' %}" alt="">
+            </div>
+            <div class="course__info">
+                <h4>Responsive Admin Dashboard UI Design</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+            </div>
+        </article>
+    </div>
+</section>
+<!-- Courses Ends -->
+
+
+<section class="faqs">
+    <H2>Frequently Ask Questions</H2>
+    <div class="container faqs__container">
+
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+    </div>
+</section>
+<!-- FAQS End here -->
+
+<section class="container testimonials__container mySwiper"  style="overflow:hidden;">
+    <h2>Students' Testimonials</h2>
+
+<div class="swiper-wrapper" >
+    
+    <article class="testimonial swiper-slide">
+        <div class="avater">
+            <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="testimonial image here">
+        </div>
+        <div class="testimonial__info">
+            <h5>Austin Briant</h5>
+            <small>Student</small>
+            <div class="testimonial__body">
+                <p>I am proud to say that after a few months of taking this course...I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="testimonial swiper-slide">
+        <div class="avater">
+            <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="testimonial image here">
+        </div>
+        <div class="testimonial__info">
+            <h5>Lincon Hervat</h5>
+            <small>UI/UX Designer</small>
+            <div class="testimonial__body">
+                <p>One of the best courses on management and leadership I have come across so far. The advice is practical, and examples highly relatable. Would help anyone become a better manager.</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="testimonial swiper-slide">
+        <div class="avater">
+            <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="testimonial image here">
+        </div>
+        <div class="testimonial__info">
+            <h5>Aliy Khabbak</h5>
+            <small>Student</small>
+            <div class="testimonial__body">
+                <p>I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="testimonial swiper-slide">
+        <div class="avater">
+            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="testimonial image here">
+        </div>
+        <div class="testimonial__info">
+            <h5>Diana Briant</h5>
+            <small>Student</small>
+            <div class="testimonial__body">
+                <p>I've taken several courses on the learning website, and I've been impressed with the quality of the instruction and the materials. I've learned a lot, and I'm confident that the skills I've learnt worth learning</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="testimonial swiper-slide">
+        <div class="avater">
+            <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="testimonial image here">
+        </div>
+        <div class="testimonial__info">
+            <h5>Abraham Quist</h5>
+            <small>Developer</small>
+            <div class="testimonial__body">
+                <p>I was able to learn new skills and advance my career thanks to the courses on your learning website.  The instructors are experts in their field, and the courses are well-designed and informative.</p>
+            </div>
+        </div>
+    </article>
+</div>
+<div  class="dropdown"style="overflow:hidden;">
+    <h4 style="text-align:center">Your review</h4>
+    <div class ="new_review" style="">
+        <form method="POST" autocomplete="off" enctype="multipart/form-data" class="contact__form"> 
+                <div class="form__name">
+                    <input type="text" name="Firstname" placeholder="Your name" required>
+    
+                    <input type="text" name="Nationality" placeholder="Nationality?" required>
+                   </div>           
+                <input type="email" name="Email Address"  placeholder="Your Email" required >
+                <textarea name="message"  rows="7" placeholder="Your review here" required></textarea>
+                <button type="submit" class="btn btn-primary" target="_blank" style="margin-left:20%;">Send Message</button>
+        </form>
+    </div>
+    <div class="swiper-pagination" > </div>
+</div>
+
+
+
+
+</section>
+
+
+{% include "student/footer.html" %}
+
+<script src="{% static 'js/main.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+
+        // // Show/hide faq answer
+
+
+
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          //when window width is >=600px
+          breakpoints:{
+            600:{
+                slidesPerView: 2
+            }
+          }
+        });
+      </script>
+</body>
+</html>

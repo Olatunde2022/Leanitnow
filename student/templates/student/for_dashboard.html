@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for student in students %}
+
+    {% comment %} <p>Mobile: {{student.mobile}} </p>    
+    <p>Address: {{student.address}} </p>     {% endcomment %}
+
+    <p>Address: {{student.address}} </p>    
+    <p>Mobile: {{student.mobile}} </p>    
+    <p>Firstname: {{request.user.first_name}} </p>    
+    <p>Lastname: {{request.user.last_name}} </p> 
+    <img src="{{student.profile_pic}}" alt="student image">   
+    {% comment %} <p><a href="{% url 'student' student.id %}">{{student.address}}</a></p> {% endcomment %}
+    
+{% comment %} <p>{{student}}</p> {% endcomment %}
+{% endfor %}
+
+</body>
+</html>

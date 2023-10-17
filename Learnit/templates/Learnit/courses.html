@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Institute</title>
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>      
+        body{
+            background-image: url("/static/image/bg.jpg");
+            ontserrat, sans-serif;
+        line-height: 1.7;
+        color: var(--color-white);
+        }
+        .courses{
+            margin-top: 1rem;
+        }
+        .courses h2{
+            text-align: left;
+            margin-left:10%;
+        }
+    </style>
+</head>
+<body>
+    {% include "student/navbar.html" %}
+
+   
+    <!-- NAV Ends -->
+
+
+
+    <section class="courses">
+        <h2>Our Courses</h2>
+        <div class="container courses__container">
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Social Media Website UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive SmartHome Website Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Admin Dashboard UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/devops.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Devops And Tools</h4>
+                    <p>Showing you how to use DevOps principles with Google Cloud Platform (GCP) to develop applications and services, monitor, and maintain a complete application using DevOps in practice</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/data-analy-manag.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Data Analysis And Management</h4>
+                    <p>Leading digital experience agency for +20 years, Whereoware drives smart growth through digital strategy and activation, we design and build, award-winning websites and campaigns...</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/python.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Python Full Stack Development</h4>
+                    <p>Get familiar with the most popular python libraries and you can be responsible for creating a streamlined user experience across both the back-end and front-end portions of an application</p> 
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Social Media Website UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive SmartHome Website Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Admin Dashboard UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Social Media Website UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive SmartHome Website Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Admin Dashboard UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Social Media Website UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive SmartHome Website Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Admin Dashboard UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+            
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Social Media Website UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive SmartHome Website Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+    
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Responsive Admin Dashboard UI Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- Courses Ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% include "student/footer.html" %}
+    
+
+
+<script src="{% static 'js/main.js'%}"></script>       
+    </body>
+    </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static%}
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{% static 'style/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <link rel="stylesheet" href="{% static 'style/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'style/contact.css' %}">    
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+    <style>
+      a{
+        text-decoration:none;
+      }
+      body{
+        background-image: url("/static/image/bg.jpg");
+        ontserrat, sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
+    }
+       
+    </style>
+  </head>
+  <body>
+    {% include "student/navbar.html" %}
+ 
+
+
+<br><br><br>
+{% for message in messages %}
+  <p class="{{message.tags}}">{{message}} </p>
+  {% endfor %}
+
+
+<section class="contact">
+  <form method="POST" autocomplete="off" enctype="multipart/form-data">
+    <h3 style="color: white;">STUDENT SIGNUP</h3>
+      {% csrf_token %}
+
+      <div class="form-row mb-3 mt-3 custome_div">
+        <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+        <div class="form-group col-md-6 input">
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+        </div>
+      </div> 
+
+      <div class="form-row mb-3 custome_div">
+        <div class="icon px-3 py-1 rounded-start" >  {{userForm.label}} <i class="uil uil-user"></i> </div>
+        <div class="form-group col-md-6 input ">
+          {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+        </div>
+      </div>
+      
+  
+        <div class="form-row mb-3 custome_div">
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">
+            {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+          </div>
+        </div> 
+      
+        <div class="form-row mb-3 custome_div">
+          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">
+            {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}            
+          </div>
+        </div> 
+        <div class="form-row mb-3 custome_div">
+          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">
+            {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+          </div>
+        </div> 
+
+        <div class="form-row  mb-3 custome_div"> 
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">       
+            {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+          </div>
+        </div>
+  
+        <div class="form-row  mb-3 custome_div">
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input pic">
+            {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+          </div>          
+        </div>
+        
+        <div class="form-row  mb-3 d-flex px-3 last_row">
+          <button type="submit" class="btn btn-primary py-2 ">Sign Up</button>              
+          <a href="{% url 'student:studentlogin' %}" class="btn ms-3"style="width:130px;">Login</a>
+      </div> 
+  
+      
+     
+    </form>
+  
+</section>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+{% include "student/footer.html" %}
+
+<script src="{% static 'js/main.js'%}"></script> 
+  </body>
+</html>
