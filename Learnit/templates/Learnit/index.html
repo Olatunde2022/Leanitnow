@@ -297,10 +297,9 @@ span{
         </div>
     </article>
 
-    {% for review in Review %}
+    {% comment %} {% for review in Review %}
     <article class="testimonial swiper-slide">
         <div class="avater"> 
-            {% comment %} <img src="" alt="">            {% endcomment %}
             <span style="padding:7%"><i class="uil uil-man"></i></span>
         </div>
         <div class="testimonial__info">
@@ -311,7 +310,7 @@ span{
             </div>
         </div>
     </article>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
 
 </div>
 <div class="swiper-pagination" > </div>
