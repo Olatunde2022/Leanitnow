@@ -37,7 +37,22 @@
 .dropdown:hover .new_review {        
         display:block;        
 }
-    
+
+.testimonial span{
+    width:6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0 auto 1rem ;
+    border: 1em solid var(--color-bg1);
+}
+span{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
 </style>
 </head>
 <body>
@@ -284,16 +299,16 @@
 
     {% for review in Review %}
     <article class="testimonial swiper-slide">
-        <div class="avater">
-            
-            <img src="" alt=""><i class="uil uil-plus"></i></img>
+        <div class="avater"> 
+            {% comment %} <img src="" alt="">            {% endcomment %}
+            <span style="padding:7%"><i class="uil uil-man"></i></span>
         </div>
         <div class="testimonial__info">
             <h5>{{review.Name}}</h5>
             <small>Non Student</small>
             <div class="testimonial__body">
-                <p>{{review.Body}}</p>
-                       </div>
+                <p>{{review.Body}}</p>                       
+            </div>
         </div>
     </article>
     {% endfor %}
