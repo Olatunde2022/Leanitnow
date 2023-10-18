@@ -229,19 +229,6 @@
     <h2>Students' Testimonials</h2>
 
 <div class="swiper-wrapper" >
-    
-    <article class="testimonial swiper-slide">
-        <div class="avater">
-            <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="testimonial image here">
-        </div>
-        <div class="testimonial__info">
-            <h5>Austin Briant</h5>
-            <small>Student</small>
-            <div class="testimonial__body">
-                <p>I am proud to say that after a few months of taking this course...I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</p>
-            </div>
-        </div>
-    </article>
 
     <article class="testimonial swiper-slide">
         <div class="avater">
@@ -294,24 +281,43 @@
             </div>
         </div>
     </article>
+
+    {% for review in Review %}
+    <article class="testimonial swiper-slide">
+        <div class="avater">
+            
+            <img src="" alt=""><i class="uil uil-plus"></i></img>
+        </div>
+        <div class="testimonial__info">
+            <h5>{{review.Name}}</h5>
+            <small>Non Student</small>
+            <div class="testimonial__body">
+                <p>{{review.Body}}</p>
+                       </div>
+        </div>
+    </article>
+    {% endfor%}
+
 </div>
+<div class="swiper-pagination" > </div>
+
+
 <div  class="dropdown"style="overflow:hidden; transition: all 400ms ease;">
+    
     <h4 style="text-align:center">Your review</h4>
     <div class ="new_review" style="">
         <form method="POST" autocomplete="off" enctype="multipart/form-data" class="contact__form"> 
+            {% csrf_token %}
                 <div class="form__name">
-                    <input type="text" name="Firstname" placeholder="Your name" required>
-    
+                    <input type="text" name="Name" placeholder="Your name" required>    
+                    <input type="email" name="Email"  placeholder="Your Email" required >
                     <input type="text" name="Nationality" placeholder="Nationality?" required>
                    </div>           
-                <input type="email" name="Email Address"  placeholder="Your Email" required >
-                <textarea name="message"  rows="7" placeholder="Your review here" required></textarea>
+                <textarea name="Body"  rows="7" placeholder="Your review here" required></textarea>
                 <button type="submit" class="btn btn-primary" target="_blank" style="margin-left:20%;">Send Message</button>
         </form>
     </div>
-    <div class="swiper-pagination" > </div>
 </div>
-
 
 
 
@@ -319,6 +325,8 @@
 
 
 {% include "student/footer.html" %}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script src="{% static 'js/main.js' %}"></script>
 
@@ -362,7 +370,19 @@ faqs.forEach(faq =>{
 })
 
 
-
+        
+{% for msg in messages%}
+{% comment %} {% if message.tags == "success"%} {% endcomment %}
+swal(
+        "{{msg}}",
+        {
+    button:{
+        text: "Go back",
+        className: "swal-button",
+    }
+        }
+  );
+  {% endfor %}
 
       </script>
 </body>
