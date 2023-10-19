@@ -230,11 +230,7 @@ header{
     background: var(--color-bg1);
     box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
  }
- .faqs__container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
- }
+
  .faq{
 padding: 2rem;
 display: flex;
@@ -462,8 +458,9 @@ footer ul li a:hover{
       grid-template-columns: 1fr 1fr;
   }
   /* FAQS */
-  .faqs__container{
-      grid-template-columns: 1fr 1fr;
+  .faqs__container{    
+    display:none;
+      /* grid-template-columns: 1fr 1fr; */
   }
   .faq{
       padding: 1.5rem;
@@ -472,6 +469,9 @@ footer ul li a:hover{
   .footer__container{
   grid-template-columns: 1fr 1fr;
   /* justify-content: space-between; */
+  }
+  .faqs_log_container{
+    
   }
   
   }

@@ -11,6 +11,8 @@
 
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +26,9 @@
         ontserrat, sans-serif;
     line-height: 1.7;
     color: var(--color-white);
+    }
+    .category__icon{
+        width: 30% !important;
     }
     .new_review{
         text-align:center;
@@ -51,7 +56,114 @@ span{
     display: block;
     object-fit: cover;
 }
+.person{
+    font-size: 45px;
+    
+    color:#00bf8e;
+}
+.faqs__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+ }
+.faqs_btn{
+    display:none;
+}
 
+
+/* Media queries (Tablet) */
+@media screen and (max-width: 1024px) {
+    .faqs__container{    
+        display:none;
+        /* grid-template-columns: 1fr 1fr; */
+    }
+    .faqs_btn{
+        display:block;
+        background:#00bf8e;
+        max-width:80px;
+        max-height:80px;
+        padding:20px 0px 10px 20px; 
+        border-radius:50%;
+    }
+    .faqs_btn{
+       margin-left:75%;
+       margin-top:5%;
+    }
+    .faqs_btn button {
+       background:transparent;
+       font-size:40px;
+       color:#f7c94b;
+    }
+.faq:nth-child(8) {
+display:none;
+}
+.faq:nth-child(9) {
+display:none;
+}
+.faq:nth-child(10) {
+display:none;
+}
+.review__btn{
+
+}
+.Send_review{
+    margin: 0% !important;
+    padding: 10px !important;
+}
+.cancel{
+    margin: 3% !important;
+}
+
+    }
+    
+    
+    /* Media queries (Mobile) */
+    @media screen and (max-width: 600px) {
+        .faqs__container{    
+            display:none;
+            /* grid-template-columns: 1fr 1fr; */
+        }
+        .faqs_btn{
+            display:block;
+            background:#00bf8e;
+            max-width:80px;
+            max-height:80px;
+            padding:20px 0px 10px 20px; 
+            border-radius:50%;
+        }
+        .faqs_btn{
+           margin-left:75%;
+           margin-top:5%;
+        }
+        .faqs_btn button {
+           background:transparent;
+           font-size:40px;
+           color:#f7c94b;
+        }
+.faq:nth-child(8) {
+    display:none;
+}
+.faq:nth-child(9) {
+    display:none;
+}
+.faq:nth-child(10) {
+    display:none;
+}
+.review__btn{
+
+}
+.Send_review_div{
+    margin-left:-10%;
+}
+.Send_review{
+    margin: 0% !important;
+    padding: 10px !important;
+}
+.cancel{
+    margin: 3% !important;
+}
+
+}
 
 </style>
 </head>
@@ -163,7 +275,7 @@ span{
 
 <section class="faqs">
     <H2>Frequently Ask Questions</H2>
-    <div class="container faqs__container">
+    <div class="container faqs__container ">
 
         <article class="faq">
             <div class="faqs__icon"><i class="uil uil-plus"></i></div>
@@ -236,6 +348,86 @@ span{
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
             </div>
         </article>
+    </div>
+    
+    {% comment %} <div class="container faqs_log_container">
+
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+        <article class="faq">
+            <div class="faqs__icon"><i class="uil uil-plus"></i></div>
+            <div class="question__answer">
+                <h4>How do I know the right courses for me</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
+            </div>
+        </article>
+    </div> {% endcomment %}
+    <div class="faqs_btn">
+        <button id="open-chat-btn"><i class="uil uil-comments"></i></button>
+        <button id="close-chat-btn"><i class="uil uil-multiply"></i></button>
+
     </div>
 </section>
 <!-- FAQS End here -->
@@ -297,10 +489,12 @@ span{
         </div>
     </article>
 
-    {% comment %} {% for review in Review %}
+ {% comment %} {% for review in Review %}
     <article class="testimonial swiper-slide">
         <div class="avater"> 
-            <span style="padding:7%"><i class="uil uil-man"></i></span>
+            <span style="padding:5% ;background:#6c63ff;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+              </span>
         </div>
         <div class="testimonial__info">
             <h5>{{review.Name}}</h5>
@@ -310,13 +504,13 @@ span{
             </div>
         </div>
     </article>
-    {% endfor %} {% endcomment %}
+    {% endfor %}  {% endcomment %}
 
 </div>
 <div class="swiper-pagination" > </div>
 
 
-<div  class="dropdown"style="overflow:hidden; transition: all 400ms ease;">
+<div id="#reviews" class="dropdown"style="overflow:hidden; transition: all 400ms ease;">
     
     <h4 style="text-align:center">Your review</h4>
     <div class ="new_review" style="">
@@ -328,7 +522,10 @@ span{
                     <input type="text" name="Nationality" placeholder="Nationality?" required>
                    </div>           
                 <textarea name="Body"  rows="7" placeholder="Your review here" required></textarea>
-                <button type="submit" class="btn btn-primary" target="_blank" style="margin-left:20%;">Send Message</button>
+                <div class="Send_review_div" style="margin-left:-20%;">
+                    <button type="submit" class="btn btn-primary Send_review" target="_blank" style="margin-left:5%;">Send Message</button>
+                    <button type="reset" value="Reset"class="btn btn-primary Send_review cancel"style="margin-left:5%;">Close</button>
+                </div>
         </form>
     </div>
 </div>
@@ -384,7 +581,49 @@ faqs.forEach(faq =>{
 })
 
 
-        
+
+
+// For FAQS_LOGS
+const faq_log = document.querySelector('.faqs__container');
+const chatBtn = document.querySelector('#open-chat-btn');
+const close_chat_Btn = document.querySelector('#close-chat-btn');
+
+{% comment %} faq_log.style.display = "none"; {% endcomment %}
+close_chat_Btn.style.display = "none";
+
+chatBtn.addEventListener('click', ()=>{
+    faq_log.style.display = "block";
+    close_chat_Btn.style.display = "inline-block";
+    chatBtn.style.display = "none";
+})
+
+const closeLog =  () => {
+    faq_log.style.display = "none";
+    close_chat_Btn.style.display = "none";
+    chatBtn.style.display = "inline-block";
+}
+close_chat_Btn.addEventListener('click', closeLog)
+
+{% comment %} 
+FOR REVIEW
+{% endcomment %}
+const review_click = document.querySelector('.review__btn') 
+const Sendreview = document.querySelector('.Send_review') 
+const Closereview = document.querySelector('.cancel') 
+const review_container = document.querySelector('.new_review')
+
+review_click.addEventListener('click', ()=>{
+    review_container.style.display = "block";
+   })
+
+Sendreview.addEventListener('click', ()=>{
+    review_container.style.display = "none";
+   })
+Closereview.addEventListener('click', ()=>{
+    review_container.style.display = "none";
+   })
+
+
 {% for msg in messages%}
 {% comment %} {% if message.tags == "success"%} {% endcomment %}
 swal(

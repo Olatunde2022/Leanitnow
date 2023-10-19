@@ -8,7 +8,75 @@
     {% comment %} <link rel="stylesheet" href="{% static 'style/index.css'%}">
     <link rel="stylesheet" href="{% static 'style/about.css'%}">
     <link rel="stylesheet" href="{% static 'style/contact.css'%}"> {% endcomment %}
+<style>
+     
+.review__btn{
+display:none;
+}
+/* Media queries (Tablet) */
+@media screen and (max-width: 1024px) {
+ 
+.review__btn{
+display:block;
+}
+}
 
+
+/* Media queries (Mobile) */
+@media screen and (max-width: 600px) {
+    
+    .review__btn{
+    display:block;
+}
+.links:nth-child(1) {
+display:none;
+}
+.links:nth-child(2) {
+display:none;
+}
+.links:nth-child(3) {
+display:none;
+}
+.links:nth-child(4) {
+display:none;
+}
+
+footer{
+    background: var(--color-bg1);
+    padding-top: 5rem;
+    font-size: 0.9rem;
+}
+.footer__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    }
+.footer__container > div h4{
+    margin-bottom: 1rem;
+}
+.footer__1 p{
+    margin: 0 0 1rem;
+}
+footer ul li{
+    margin-bottom:0rem;
+
+}
+
+.footer__socials{
+    display: flex;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.footer__copyright{
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-bg2);
+    letter-spacing: 3px;
+}
+}
+</style>
 </head>
 <body>
     
@@ -22,10 +90,11 @@
             <div class="footer__2">
                 <h4>Permalinks</h4>
                 <ul class="permalinks">
-                    <li><a href="{% url 'Learnit_Index_page' %}">Home</a></li>
-                    <li><a href="{% url 'Learnit_About_page' %}">About</a></li>
-                    <li><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
-                    <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li>
+                    <li class="links"><a href="{% url 'Learnit_Index_page' %}">Home</a></li>
+                    <li class="links"><a href="{% url 'Learnit_About_page' %}">About</a></li>
+                    <li class="links"><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
+                    <li class="links"><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li>
+                    <li class="links"><span class="review__btn">Want to Review us?</span></li>
                 </ul>
             </div>
             <div class="footer__3">
