@@ -1,7 +1,8 @@
 from django.urls import path
 from student import views
 from django.contrib.auth.views import LoginView,PasswordResetView,PasswordResetDoneView,PasswordResetCompleteView,PasswordResetConfirmView
-
+from django.conf import settings
+from django.conf.urls.static import static
 app_name = 'student' 
 
 
@@ -28,3 +29,5 @@ path('student/<str:id>', views.eachstudent,name='student'),
 # path('check-marks/<int:pk>', views.check_marks_view,name='check-marks'),
 # path('student-marks', views.student_marks_view,name='student-marks'),
 ]
+
+urlpatterns+= static(settings.MEDIA_URL, document6_root=settings.MEDIA_ROOT)

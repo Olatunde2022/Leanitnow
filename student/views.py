@@ -205,8 +205,12 @@ def Login(request):
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return HttpResponseRedirect("student-dashboard")
+				# add = user.address                              
+				# phone = user.mobile                              
+				# fname = user.first_name                              
+				# lname = user.last_name                              
+				messages.info(request, f"You are now logged in as {username}.")                              
+				return HttpResponseRedirect('student-dashboard') 
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:

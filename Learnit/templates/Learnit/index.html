@@ -7,6 +7,7 @@
     <title>My Institute</title>    
     <link rel="stylesheet" href="{% static 'style/index.css'%}">
     <link rel="stylesheet" href="{% static 'style/contact.css'%}">
+    <link rel="icon" type="image/x-icon" href="{% static 'image/logo.jpg' %}">
    
 
 
@@ -489,7 +490,7 @@ display:none;
         </div>
     </article>
 
- {% comment %} {% for review in Review %}
+  {% for review in Review %}
     <article class="testimonial swiper-slide">
         <div class="avater"> 
             <span style="padding:5% ;background:#6c63ff;">
@@ -504,7 +505,7 @@ display:none;
             </div>
         </div>
     </article>
-    {% endfor %}  {% endcomment %}
+    {% endfor %} 
 
 </div>
 <div class="swiper-pagination" > </div>

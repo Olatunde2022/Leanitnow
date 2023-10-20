@@ -21,6 +21,29 @@
         line-height: 1.7;
         color: var(--color-white);
     }
+    .logo_div{
+        width:50%; 
+        border-top-left-radius: 50%; 
+        border-top-right-radius: 50%;         
+    }
+    
+    
+    
+    /* Media queries (Tablet) */
+    @media screen and (max-width: 1024px){
+        .about__achievements-left {
+            text-align: -webkit-center;
+        }
+    }
+
+/* Media queries (Mobile) */
+@media screen and (max-width: 600px) {
+        .about__achievements-left{
+            text-align: webkit-center !important;
+        }
+    }
+            
+
 </style>
 </head>
 <body>
@@ -30,7 +53,9 @@
     <section class="about__achievements">
         <div class="container about__achievements-container">
             <div class="about__achievements-left">
-                <img src="{% static 'image/woobro.jpg'%}" alt="">
+                <div class="logo_div">
+                    <img src="{% static 'image/about1.png'%}"   alt="">
+                </div> 
             </div>
             <div class="about__achievements-right">
                 <h1>Achievements</h1>
@@ -141,7 +166,7 @@
 
         <article class="team__member 6">
             <div class="team__member-image">
-                <img src="https://images.unsplash.com/photo-1613005341945-35e159e522f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1613005341945-35e159e522f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" style="max-height:186.98px" alt="">
             </div>
             <div class="team__member-info">
                 <h4>Barokah Aliy</h4>

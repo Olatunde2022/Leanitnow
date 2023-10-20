@@ -53,7 +53,7 @@
       </div> 
 
       <div class="form-row mb-3 custome_div">
-        <div class="icon px-3 py-1 rounded-start" >  {{userForm.label}} <i class="uil uil-user"></i> </div>
+        <div class="icon px-3 py-1 rounded-start" >  {{userForm.label}} <i class="uil uil-lock"></i> </div>
         <div class="form-group col-md-6 input ">
           {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
         </div>
@@ -61,34 +61,34 @@
       
   
         <div class="form-row mb-3 custome_div">
-          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-book"></i> </div>
           <div class="form-group col-md-6 input">
             {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
           </div>
         </div> 
       
         <div class="form-row mb-3 custome_div">
-          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-books"></i> </div>
           <div class="form-group col-md-6 input">
             {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}            
           </div>
         </div> 
         <div class="form-row mb-3 custome_div">
-          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-phone"></i> </div>
           <div class="form-group col-md-6 input">
             {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
           </div>
         </div> 
 
         <div class="form-row  mb-3 custome_div"> 
-          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-store"></i> </div>
           <div class="form-group col-md-6 input">       
             {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
           </div>
         </div>
   
         <div class="form-row  mb-3 custome_div">
-          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-camera"></i> </div>
           <div class="form-group col-md-6 input pic">
             {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
           </div>          
@@ -102,9 +102,83 @@
       
      
     </form>
-  
-</section>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </section>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  {% comment %} 
+  <form method="POST" autocomplete="off" enctype="multipart/form-data">
+    <h3 style="color: white;">STUDENT SIGNUP</h3>
+    {% csrf_token %}
+    
+    <div class="form-row mb-3 mt-3 custome_div">
+      <div class="form-group col-md-6 input custome_div">
+        <div class="icon px-3 py-1 rounded-start"> <label for="username"> <i class="uil uil-user"></i></label> </div>
+        <input type="text" name = "username" id = "username"  placeholder="username", required class="form-control">
+        {% comment %} {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %} {% endcomment %}
+        {% comment %} 
+      </div>
+    </div> 
+
+    <div class="form-row mb-3 custome_div">
+      <div class="form-group col-md-6 input custome_div">
+        <div class="icon px-3 py-1 rounded-start" ><label for="password"><i class="uil uil-lock"></i></label> </div>
+        <input type="password" name = "password"  id = "password" placeholder="password", required class="form-control">
+       {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %} {% endcomment %}
+     {% comment %}   </div>
+    </div>
+    
+    
+    <div class="form-row mb-3 custome_div">
+      <div class="form-group col-md-6 input custome_div">
+        
+        <div class="icon px-3 py-1 rounded-start"><label for="first_name"><i class="uil uil-book"></i> </label> </div>
+        <input type="text" name = "first_name" id="first_name" placeholder="first_name", required class="form-control">
+         {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %} {% endcomment %}
+   {% comment %}   </div>
+    </div> 
+    
+    <div class="form-row mb-3 custome_div">
+      <div class="form-group col-md-6 input custome_div">
+        <div class="icon px-3 py-1 rounded-start"><label for="last_name"><i class="uil uil-books"></i> </label></div>
+          <input type="text" name = "last_name" id="last_name" placeholder="last_name", required class="form-control">
+         {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}             {% endcomment %}
+          {% comment %}</div>
+      </div> 
+
+      <div class="form-row mb-3 custome_div">
+        <div class="form-group col-md-6 input custome_div">
+          <div class="icon px-3 py-1 rounded-start"> <label for="mobile"> <i class="uil uil-phone"></i></label> </div>
+          <input type="number" name = "mobile" id="mobile" placeholder="mobile"  required class="form-control">
+          {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %} {% endcomment %}
+       {% comment %}  </div>
+      </div> 
+      
+      <div class="form-row  mb-3 custome_div"> 
+        <div class="form-group col-md-6 input custome_div">  
+          <div class="icon px-3 py-1 rounded-start"> <label for="address"> <i class="uil uil-store"></i></label>  </div>
+             
+          <input type="text" name = "address" id="address" placeholder="address", required class="form-control">
+           {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %} {% endcomment %}
+       {% comment %} </div>
+      </div>
+
+      <div class="form-row  mb-3 custome_div">
+        <div class="form-group col-md-6 input custome_div">            
+          <div class="icon px-3 py-1 rounded-start custome_div"> <label for="profile_pic" ><i class="uil uil-camera" ></i></label> </div>
+          <input type="file" name="profile_pic" id="profile_pic" requiired class="form-control">
+          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %} {% endcomment %}
+        {% comment %} </div>          
+      </div>
+      
+      <div class="form-row  mb-3 d-flex px-3 last_row">
+        <button type="submit" class="btn btn-primary py-2 ">Sign Up</button>              
+        <a href="{% url 'student:studentlogin' %}" class="btn ms-3"style="width:130px;">Login</a>
+    </div> 
+
+    
+   
+  </form>
+
+   {% endcomment %}
 
 
 {% include "student/footer.html" %}

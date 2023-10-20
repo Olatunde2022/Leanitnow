@@ -3,7 +3,6 @@ distlib
 dj-database-url
 Django
 django-widget-tweaks
-filelock
 gunicorn
 packaging
 Pillow
@@ -13,5 +12,4 @@ python-decouple
 sqlparse
 typing_extensions
 tzdata
-virtualenv
 whitenoise
