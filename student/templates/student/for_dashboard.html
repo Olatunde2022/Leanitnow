@@ -7,30 +7,20 @@
 </head>
 <body>
     {% comment %} {% for student in students %} {% endcomment %}
-
     {% if user.is_authenticated %}
-    <div class="right_area">
-      
-        <a href="logout" class="logout_btn">Logout</a>
-       
-        
+    <div class="right_area">      
+        <a href="logout" class="logout_btn">Logout</a>          
       </div>
 <h2>Dashboard</h2>
 <br>
-<p>You're successfully logged in!</p>
-
-    {% comment %} <p>Mobile: {{student.mobile}} </p>    
-    <p>Address: {{student.address}} </p>     {% endcomment %}
-    
+<p>You're successfully logged in!</p>    
     <p>Firstname: {{request.user.first_name}} </p>    
     <p>Lastname: {{request.user.last_name}} </p> 
     <p>Username: {{request.user.username}}</p>    
     <p>Password: {{request.user.password}}</p>    
-    <p>Address: {{request.StudentForm.address}}</p>    
-    <p>Mobile: {{request.StudentForm.mobile}}</p>
-    <img src="{{student.profile_pic}}" alt="student image">   
-    {% comment %} <p><a href="{% url 'student' student.id %}">{{student.address}}</a></p> {% endcomment %}
-    {% comment %} <p>{{student}}</p> {% endcomment %}
+    <p>Address: {{request.user.address}}</p>    
+    <p>Mobile: {{request.user.mobile}}</p>
+    <img src="{{request.user.profile_pic}}" alt="student image">
     {% endif %}
 {% comment %} {% endfor %} {% endcomment %}
 
