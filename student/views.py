@@ -14,6 +14,10 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 # from django.contrib.auth.forms import UserCreationForm 
 from django.contrib import messages
+from .forms import EditUserProfileForm
+from django.views import generic
+from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 
 # from django import forms
 # from teacher import models as TMODEL
@@ -24,32 +28,6 @@ def studentclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'student/studentclick.html')
-
-def student_signup_view(request):
-    userForm=forms.StudentUserForm()
-    studentForm=forms.StudentForm()
-    # studentForm=UserCreationForm ()
-    mydict={'userForm':userForm,'studentForm':studentForm}
-    if request.method=='POST':
-        userForm=forms.StudentUserForm(request.POST)
-        studentForm=forms.StudentForm(request.POST,request.FILES)
-        # if userForm and studentForm != None:
-        #     messages.success(request, "You've successfully signup with us")
-        #     return redirect(reverse('studentlogin'))
-        # else:
-        #     messages.error(request,'There is empty field, kindly check')
-        #     return render(request,'student/studentsignup.html',context=mydict)
-        if userForm.is_valid() and studentForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            student=studentForm.save(commit=False)
-            student.user=user
-            student.save()
-            my_student_group = Group.objects.get_or_create(name='STUDENT')
-            my_student_group[0].user_set.add(user)
-        return HttpResponseRedirect('studentlogin')
-    return render(request,'student/studentsignup.html',context=mydict)
 
 def is_student(user):
     return user.groups.filter(name='STUDENT').exists()
@@ -67,18 +45,8 @@ def is_student(user):
 #     context= {"student":each_student}
     
 #     return render(request,'student/for_dashboard.html', context)
-def dashboard(request):
-    each_student = Student.objects.all()
-    context= {"students":each_student }
-    
-    return render(request,'student/for_dashboard.html', context)
 
-def eachstudent(request,id):
-    fetch_student = Student.objects.get(id=id)
-    context= {"students":fetch_student}
-    
-    return render(request,'student/for_dashboard.html', context)
-    
+
 
 # @login_required(login_url='studentlogin')
 # @user_passes_test(is_student)
@@ -179,6 +147,17 @@ def eachstudent(request,id):
 #             return HttpResponseRedirect(next)
         
 
+# class UpdateUserView(generic.UpdateView):
+#     form_class = EditUserProfileForm
+#     template_name = "student/change_profile.html"
+#     success_url = reverse_lazy('student:student-dashboard')
+    
+    
+#     def get_object(self):
+#         return self.request.user
+#     # def get_object(self):
+#     #     return self.request.Student
+    
 
 
 # def Login(request):
@@ -194,7 +173,80 @@ def eachstudent(request,id):
 #     else:
 #         # Return an 'invalid login' error message.
 #         return  HttpResponse('<h3>There is an error from login request</h3>')
-  
+
+def student_signup_view(request):
+    userForm=forms.StudentUserForm()
+    studentForm=forms.StudentForm()
+    # studentForm=UserCreationForm ()
+    mydict={'userForm':userForm,'studentForm':studentForm}
+    if request.method=='POST':
+        userForm=forms.StudentUserForm(request.POST)
+        studentForm=forms.StudentForm(request.POST,request.FILES)
+        # if userForm and studentForm != None:
+        #     messages.success(request, "You've successfully signup with us")
+        #     return redirect(reverse('studentlogin'))
+        # else:
+        #     messages.error(request,'There is empty field, kindly check')
+        #     return render(request,'student/studentsignup.html',context=mydict)
+        if userForm.is_valid() and studentForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            student=studentForm.save(commit=False)
+            student.user=user
+            student.save()
+            my_student_group = Group.objects.get_or_create(name='STUDENT')
+            my_student_group[0].user_set.add(user)
+        return HttpResponseRedirect('studentlogin')
+    return render(request,'student/studentsignup.html',context=mydict)
+
+
+def dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect(reverse('studentlogin'))
+    user = request.user
+    student = Student.objects.get(user=user)
+    context= {"student":student, "user":user }
+    
+    return render(request,'student/for_dashboard.html', context)
+
+def changeprofile(request):
+    user = request.user
+    if not request.user.is_authenticated:
+        return redirect(reverse('studentlogin'))
+    
+    student_exit = Student.objects.filter(user=user).exists()
+    if not student_exit:
+        messages.error(request, 'There is no match for this username')
+        return redirect(reverse('cahnge-profile'))
+    
+    student = Student.objects.get(user=user)
+    context = {'student':student, 'user': user}
+    if request.method == 'POST':
+        form = request.POST
+        username = form.get('username')
+        first_name = form.get('first_name')
+        last_name = form.get('last_name')
+        mobile = form.get('mobile')
+        address = form.get('address')
+        email = form.get('email')
+        img = request.FILES.get('profile_pic')
+        user.first_name = first_name
+        user.last_name = last_name
+        user.username = username
+        user.save()
+        student.mobile = mobile
+        student.email = email
+        
+        student.address = address
+        if img:
+            student.profile_pic = img
+        student.save()
+        messages.success(request, 'Your profile is updated successfully') 
+        return HttpResponseRedirect('student-dashboard') 
+    return render(request, 'student/change_profile.html',context )
+
+
 
 def Login(request):
 	if request.method == "POST":
@@ -204,11 +256,7 @@ def Login(request):
 			password = form.cleaned_data.get('password')
 			user = authenticate(username=username, password=password)
 			if user is not None:
-				login(request, user)
-				# add = user.address                              
-				# phone = user.mobile                              
-				# fname = user.first_name                              
-				# lname = user.last_name                              
+				login(request, user)                           
 				messages.info(request, f"You are now logged in as {username}.")                              
 				return HttpResponseRedirect('student-dashboard') 
 			else:
@@ -224,3 +272,15 @@ def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
 	return redirect("student:studentlogin")
+
+
+def ForgotPassord(request):
+    if request.method == "POST":
+        form = request.POST
+        email = form.get('email')
+        student_exit = Student.objects.filter(email=email).exists()
+        if not student_exit:
+            messages.error(request, 'There is no record for this email')
+        
+    return render(request, 'student/forgotpassword.html')
+

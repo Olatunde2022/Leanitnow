@@ -73,8 +73,10 @@ a{
                            Don't have an account yet? <a href="{% url 'student:studentsignup' %}">Register</a>
                          </p>
                        <p>
-                           Forgot password? <a href="{% url 'student:changepassword' %}">Reset password</a>
+                           {% comment %} Forgot password? <a href="{% url 'student:changepassword' %}">Reset password</a> {% endcomment %}
                          </p>
+                         <br><br>
+                         {% comment %} <p> <a href="{% url 'student:changepassword' %}" class="logout_btn">Forgot password</a></p> {% endcomment %}
                   </form>
               
     </section>

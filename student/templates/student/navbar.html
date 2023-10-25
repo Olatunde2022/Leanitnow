@@ -34,12 +34,20 @@
                 <li><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
                 <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li>                
                 <li><a href="{% url 'student:studentsignup' %}">Login/Register</a></li>                
-            </ul>
+                {% if user.is_authenticated%}
+                <li class="dashb_link"><a href="{% url 'student:student-dashboard' %}">Dashboard</a></li>                
+                {% endif %}
+              </ul>
             <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
             <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
         </div>
-    </nav>
+    </nav><br><br>
+    
+{% for message in messages %}
+<p class="{{message.tags}}">{{message}} </p>
+{% endfor %}
 
+<br><br>
 <script src="{% static 'js/main.js'%}"></script>      
     </body>
     <!-- NAV Ends -->

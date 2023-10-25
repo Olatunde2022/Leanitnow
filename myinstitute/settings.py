@@ -82,18 +82,14 @@ WSGI_APPLICATION = 'myinstitute.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# if DEBUG == True:
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
-
-# database_url = os.environ.get("DATABASE_URL")
-# DATABASES["default"] = dj_database_url.parse(database_url)
-# DATABASES["default"] ='postgres://bllbwvtw:MYsTLPalyJ95JeFBwaxt1s_phv_drHaN@bubble.db.elephantsql.com/bllbwvtw'
-
+# else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -104,6 +100,14 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+    
+
+
+# database_url = os.environ.get("DATABASE_URL")
+# DATABASES["default"] = dj_database_url.parse(database_url)
+# DATABASES["default"] ='postgres://bllbwvtw:MYsTLPalyJ95JeFBwaxt1s_phv_drHaN@bubble.db.elephantsql.com/bllbwvtw'
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -148,8 +152,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 
-MEDIA_URL = '/image/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/image')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 

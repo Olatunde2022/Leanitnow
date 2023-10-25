@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load static%}
 {% load widget_tweaks %}
@@ -49,6 +50,12 @@
         <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
         <div class="form-group col-md-6 input">
         {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+        </div>
+      </div> 
+      <div class="form-row mb-3 mt-3 custome_div">
+        <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+        <div class="form-group col-md-6 input">
+        {% render_field userForm.email|attr:'required:true'  class="form-control" placeholder="email" %}
         </div>
       </div> 
 

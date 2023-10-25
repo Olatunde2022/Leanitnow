@@ -1,30 +1,117 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    
+    <link rel="stylesheet" href="{% static 'style/index.css'%}">
+<style>
+    body{
+        background-image: url("/static/image/bg.jpg");
+        ontserrat, sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
+    }
+    .dashb_link{
+        display:none;
+    }
+    .hder{
+        padding-bottom:1%;
+        background:#00bf8e;
+    }
+    .hder_container ul{
+        display:flex;
+        flex-direction:row;
+    }
+    .hder_container li{
+        width: 10%;
+        height: 4rem;
+    }
+    .hder_container{
+        padding-top:2%;    padding-bottom:2%;
+    }
+    .hder_container li img{
+        position: relative;
+        left:700%;
+        border: 1px solid white; 
+        border-radius:50%;
+        width:70%;
+        height:100%;
+        background:red;
+    }
+    .aside{
+        max-width:20%;
+        background:green;
+        height:70vh;
+    }
+    .profile{
+        {% comment %} background:white; {% endcomment %}
+        position: absolute;
+        top:49%;
+        left:25%;
+    }
+    .footer{
+        max-height:30%;
+    }
+    .footer__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    
+    
+</style>
 </head>
 <body>
+    
+    {% include "student/navbar.html" %}
+
+    <section class="hder">
+        <div class="hder_container">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li>
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+
+    <section class="aside">
+        <div class="aside_nav">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="logout" class="logout_btn">Logout</a> </li>
+                <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li>
+                {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+  
     {% comment %} {% for student in students %} {% endcomment %}
-    {% if user.is_authenticated %}
-    <div class="right_area">      
-        <a href="logout" class="logout_btn">Logout</a>          
-      </div>
-<h2>Dashboard</h2>
-<br>
-<p>You're successfully logged in!</p>    
-    <p>Firstname: {{request.user.first_name}} </p>    
-    <p>Lastname: {{request.user.last_name}} </p> 
-    <p>Username: {{request.user.username}}</p>    
-    <p>Password: {{request.user.password}}</p>    
-    <p>Address: {{request.user.address}}</p>    
-    <p>Mobile: {{request.user.mobile}}</p>
-    <img src="{{request.user.profile_pic}}" alt="student image">
-    {% endif %}
+    <div class="profile">
+        {% if user.is_authenticated %}
+        
+    <h2>Dashboard</h2>
+    <br>   
+        <p>Firstname: {{request.user.first_name}} </p>    
+        <p>Lastname: {{request.user.last_name}} </p> 
+        <p>Email: {{student.email}}</p>    
+        <p>Username: {{request.user.username}}</p>    
+        <p>Address: {{student.address}}</p>    
+        <p>Mobile: {{student.mobile}}</p>
+        
+        {% endif %}
+
+    </div>
+    
 {% comment %} {% endfor %} {% endcomment %}
 
 
 
+
+{% include "student/footer.html" %}
+  
 </body>
 </html>

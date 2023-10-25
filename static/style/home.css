@@ -1,0 +1,143 @@
+body{
+    background-image: url("/static/image/bg.jpg");
+    font-family:  sans-serif;
+line-height: 1.7;
+color: var(--color-white);
+}
+.category__icon{
+    width: 30% !important;
+}
+.new_review{
+    text-align:center;
+    margin-top:20px;  
+    border: 1px solid green;
+    padding:2% 0 2% 15%; 
+    margin-left:10%;
+    display:none;
+    transition: all 400ms ease;
+}
+.dropdown:hover .new_review {        
+    display:block;        
+}
+
+.testimonial span{
+width:6rem;
+height: 6rem;
+border-radius: 50%;
+overflow: hidden;
+margin:0 auto 1rem ;
+border: 1em solid var(--color-bg1);
+}
+span{
+width: 100%;
+display: block;
+object-fit: cover;
+}
+.person{
+font-size: 45px;
+
+color:#00bf8e;
+}
+.faqs__container{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+.faqs_btn{
+display:none;
+}
+
+
+/* Media queries (Tablet) */
+@media screen and (max-width: 1024px) {
+.faqs__container{    
+    display:none;
+    /* grid-template-columns: 1fr 1fr; */
+}
+.faqs_btn{
+    display:block;
+    background:#00bf8e;
+    max-width:80px;
+    max-height:80px;
+    padding:20px 0px 10px 20px; 
+    border-radius:50%;
+}
+.faqs_btn{
+   margin-left:75%;
+   margin-top:5%;
+}
+.faqs_btn button {
+   background:transparent;
+   font-size:40px;
+   color:#f7c94b;
+}
+.faq:nth-child(8) {
+display:none;
+}
+.faq:nth-child(9) {
+display:none;
+}
+.faq:nth-child(10) {
+display:none;
+}
+.review__btn{
+
+}
+.Send_review{
+margin: 0% !important;
+padding: 10px !important;
+}
+.cancel{
+margin: 3% !important;
+}
+
+}
+
+
+/* Media queries (Mobile) */
+@media screen and (max-width: 600px) {
+    .faqs__container{    
+        display:none;
+        /* grid-template-columns: 1fr 1fr; */
+    }
+    .faqs_btn{
+        display:block;
+        background:#00bf8e;
+        max-width:80px;
+        max-height:80px;
+        padding:20px 0px 10px 20px; 
+        border-radius:50%;
+    }
+    .faqs_btn{
+       margin-left:75%;
+       margin-top:5%;
+    }
+    .faqs_btn button {
+       background:transparent;
+       font-size:40px;
+       color:#f7c94b;
+    }
+.faq:nth-child(8) {
+display:none;
+}
+.faq:nth-child(9) {
+display:none;
+}
+.faq:nth-child(10) {
+display:none;
+}
+.review__btn{
+
+}
+.Send_review_div{
+margin-left:-10%;
+}
+.Send_review{
+margin: 0% !important;
+padding: 10px !important;
+}
+.cancel{
+margin: 3% !important;
+}
+
+}

@@ -1,0 +1,137 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>chande-profile</title>
+    
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="{% static 'style/bootstrap.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <link rel="stylesheet" href="{% static 'style/signup.css' %}">
+    <style>
+
+        form{
+            margin-left:10% !important;
+            max-width:50%;
+        }
+        .helptext{
+            display:none;
+        }
+        #id_password{
+            display:none;
+        }
+        label:nth-child(9){
+            display:none;
+            
+        }
+
+        a{
+            text-decoration: none;
+        }
+        body{
+          background-image: url("/static/image/bg.jpg");
+          ontserrat, sans-serif;
+      line-height: 1.7;
+      color: var(--color-white);
+      }
+    </style>
+</head>
+<body style= " color:white;">
+    
+    {% include "student/navbar.html" %}
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% comment %}   
+<section class="contact">
+
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+      <h3 style="color: white;">Update profile</h3>
+        {% csrf_token %}
+  
+        {{form}}
+          
+          <div class="form-row  mb-3 d-flex px-3 last_row">
+            <button type="submit" class="btn btn-primary py-2 ">Update</button>              
+           
+        </div> 
+    
+        
+       
+      </form>
+    </section> {% endcomment %}
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        <h3 style="color: white;">STUDENT SIGNUP</h3>
+          {% csrf_token %}
+    
+          <div class="form-row mb-3 mt-3 custome_div">
+            <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+            <div class="form-group col-md-6 input">
+                <input type="text" name= "username" value={{user.username}}>
+            {% comment %} {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %} {% endcomment %}
+            </div>
+          </div>        
+          <div class="form-row mb-3 mt-3 custome_div">
+            <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+            <div class="form-group col-md-6 input">
+                <input type="email" name= "email" value={{student.email}}>
+            {% comment %} {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %} {% endcomment %}
+            </div>
+          </div>        
+      
+            <div class="form-row mb-3 custome_div">
+              <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-book"></i> </div>
+              <div class="form-group col-md-6 input">
+                <input type="text" name= "first_name" value={{user.first_name}}>
+                {% comment %} {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %} {% endcomment %}
+              </div>
+            </div> 
+          
+            <div class="form-row mb-3 custome_div">
+              <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-books"></i> </div>
+              <div class="form-group col-md-6 input">
+                <input type="text" name= "last_name" value={{user.last_name}}>
+                {% comment %} {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}             {% endcomment %}
+              </div>
+            </div> 
+            <div class="form-row mb-3 custome_div">
+              <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-phone"></i> </div>
+              <div class="form-group col-md-6 input">
+                <input type="text" name= "mobile" value={{student.mobile}}>
+                {% comment %} {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %} {% endcomment %}
+              </div>
+            </div> 
+    
+            <div class="form-row  mb-3 custome_div"> 
+              <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-store"></i> </div>
+              <div class="form-group col-md-6 input"> 
+                <input type="text" name= "address" value="{{student.address}}">      
+                {% comment %} {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %} {% endcomment %}
+              </div>
+            </div>
+      
+            <div class="form-row  mb-3 custome_div">
+              <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-camera"></i> </div>
+              <div class="form-group col-md-6 input pic">
+                <input type="file" name='profile_pic'>
+                {% comment %} {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %} {% endcomment %}
+              </div>          
+            </div>
+            
+            <div class="form-row  mb-3 d-flex px-3 last_row">
+              <button type="submit" class="btn btn-primary py-2 ">Update</button>              
+          </div> 
+      
+          
+         
+        </form>
+      </section>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    {% include "student/footer.html" %}
+</body>
+</html>

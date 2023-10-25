@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .models import myReview
+from student.models import Student
 
 # Create your views here.
 def Index(request):
+    user = request.user
+    student = Student.objects.get(user=user)
     fetch_review = myReview.objects.all()
-    context = {'Review': fetch_review}
+    context = {'Review': fetch_review, "student": student, "user":user}
     if request.method == 'POST':
         form = request.POST
         Name = form.get('Name')
@@ -23,6 +26,7 @@ def Index(request):
         messages.success(request, 'Thanks for reviewing us')
         # return redirect(reverse(request, 'Learnit_Index_page'))
     return render(request, 'Learnit/index.html', context)
+    # return render(request, 'Learnit/index.html')
 
 def Courses(request):
     return render(request, 'Learnit/courses.html')
