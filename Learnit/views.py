@@ -22,13 +22,14 @@ def Index(request):
         review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
         review.save()
         messages.success(request, 'Thanks for reviewing us')
+        return render(request, 'Learnit/index.html')
     
-    if not request.user.is_authenticated:
+    if request.user.is_authenticated:
         student = Student.objects.get(user=user)
         fetch_review = myReview.objects.all()
         context = {'Review': fetch_review, "student": student, "user":user}
         # return redirect(reverse(request, 'Learnit_Index_page'))
-        return render(request, 'Learnit/index.html', context)
+        return render(request, 'Learnit/index.html', context) #USING THIS REQUIRES APP NAME
     return render(request, 'Learnit/index.html')
 
 def Courses(request):
@@ -56,7 +57,7 @@ def Reviews(request):
         review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
         review.save()
         messages.success(request, 'Thanks for reviewing us')
-        return redirect(reverse(request, 'Learnit_Index_page'))
+        return redirect(reverse(request, 'Learnit_Index_page')) #USING THIS REQUIRES APP NAME
         # except:
         #     not Name or not Nationality or not Body or not Email 
         #     messages.error(request, "There is imcomplete field(s)")
