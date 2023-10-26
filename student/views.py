@@ -202,13 +202,16 @@ def student_signup_view(request):
 
 
 def dashboard(request):
-    if not request.user.is_authenticated:
-        return redirect(reverse('studentlogin'))
     user = request.user
-    student = Student.objects.get(user=user)
-    context= {"student":student, "user":user }
+    if request.method == "POST":
+        student = Student.objects.get(user=user)
+        context= {"student":student, "user":user }
+        if not request.user.is_authenticated:
+            messages.info(request, "You are not authorized, kindly login")
+            return redirect(reverse('studentlogin'))
     
     return render(request,'student/for_dashboard.html', context)
+    # return render(request,'student/for_dashboard.html', context)
 
 def changeprofile(request):
     user = request.user
