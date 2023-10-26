@@ -207,7 +207,7 @@ def dashboard(request):
     if request.user.is_authenticated:
         student = Student.objects.get(user=user)
         context= {"student":student, "user":user }
-        return redirect(reverse('student-dashboard', context))#USING THIS REQUIRES APP NAME
+        return render(request,'student/for_dashboard.html', context)
     else:    
         messages.info(request, "You are not authorized, kindly login")
         # return redirect(reverse('student:studentlogin'))
