@@ -178,8 +178,8 @@ def student_signup_view(request):
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
     # studentForm=UserCreationForm ()
-    mydict={'userForm':userForm,'studentForm':studentForm}
     if request.method=='POST':
+        mydict={'userForm':userForm,'studentForm':studentForm}
         userForm=forms.StudentUserForm(request.POST)
         studentForm=forms.StudentForm(request.POST,request.FILES)
         return render(request,'student/studentsignup.html',context=mydict)
