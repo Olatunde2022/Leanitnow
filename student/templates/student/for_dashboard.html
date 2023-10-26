@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     
+    
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+   
     <link rel="stylesheet" href="{% static 'style/index.css'%}">
+    <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
 <style>
     body{
         background-image: url("/static/image/bg.jpg");
@@ -14,104 +18,249 @@
     line-height: 1.7;
     color: var(--color-white);
     }
+    a{
+        text-decoration:none;
+        color:#f7c94b;
+    }
+    nav{
+        background:#2e3267;
+        height:7rem;
+    }
     .dashb_link{
         display:none;
     }
-    .hder{
-        padding-bottom:1%;
-        background:#00bf8e;
+   
+    .user_img{
+    border: 1px solid red;
+    width:6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0 auto 1rem ;
+    float:right;
     }
-    .hder_container ul{
-        display:flex;
-        flex-direction:row;
-    }
-    .hder_container li{
-        width: 10%;
-        height: 4rem;
-    }
-    .hder_container{
-        padding-top:2%;    padding-bottom:2%;
-    }
-    .hder_container li img{
-        position: relative;
-        left:700%;
-        border: 1px solid white; 
-        border-radius:50%;
-        width:70%;
-        height:100%;
-        background:red;
-    }
-    .aside{
-        max-width:20%;
-        background:green;
-        height:70vh;
-    }
+    
     .profile{
-        {% comment %} background:white; {% endcomment %}
-        position: absolute;
-        top:49%;
-        left:25%;
     }
-    .footer{
-        max-height:30%;
+       
+    .bg-body-tertiary{
+    background:#6c63ff !important;
+    
+}
+
+.student_actions{
+    position: absolute;
+    right:4%;
+    top:35%;
+    background:green;
+}
+
+
+
+
+
+
+.student_mobile_view{
+    display:none;
+}
+
+
+
+.Student-Profile {
+    width:80%;
+    height:100%;
+    background: #07182E;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    {% comment %} place-content: center; {% endcomment %}
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  
+  .Student-Profile h2 {
+    z-index: 1;
+    color: white;
+    font-size: 2em;
+  }
+  
+  .Student-Profile::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    height: 130%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+  }
+  
+  @keyframes rotBGimg {
+    from {
+      transform: rotate(0deg);
     }
-    .footer__container {
-        grid-template-columns: repeat(4, 1fr);
+  
+    to {
+      transform: rotate(360deg);
     }
+  }
+  
+  .Student-Profile::after {
+    content: '';
+    position: absolute;
+    background: #07182E;
+    ;
+    inset: 5px;
+    border-radius: 15px;
+  } 
     
-    
-    
+
+
+  
+  /* Media queries (Mobile) */
+  @media screen and (max-width: 600px) {
+    .student_mobile_view{
+         display:block;
+        {% comment %} justify-content: center;
+        align-items: center; {% endcomment %} 
+        
+    }
+
+    .bg-body-tertiary{
+        display:none;
+    background:#6c63ff !important;    
+}
+.studen_desktop_view{
+    display:none;
+}
+
+}
+
+/* Media queries (Tablet) */
+@media screen and (max-width: 1024px) {
+    .student_mobile_view{
+        display:block;
+    }
+    .bg-body-tertiary{
+        display:none;
+    background:#6c63ff !important;    
+}
+
+.studen_desktop_view{
+    display:none;
+}
+
+}
 </style>
 </head>
 <body>
     
     {% include "student/navbar.html" %}
 
-    <section class="hder">
-        <div class="hder_container">
-            <ul>
-                {% if user.is_authenticated %}
-                <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li>
-                {% endif %}
-            </ul>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <ul style= "">
+            {% if user.is_authenticated %}            
+            <li><span style= "margin-right: 57rem !important;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span></li>
+            {% endif %}
+        </ul>
         </div>
-    </section>
+      </nav>
 
-    <section class="aside">
-        <div class="aside_nav">
-            <ul>
-                {% if user.is_authenticated %}
+
+      {% if user.is_authenticated %}
+
+     
+
+    
+        <div class="student_actions pe-3">            
+            <ul>                
                 <li><a href="logout" class="logout_btn">Logout</a> </li>
                 <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li>
                 {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
-                {% endif %}
             </ul>
         </div>
-    </section>
-  
-    {% comment %} {% for student in students %} {% endcomment %}
-    <div class="profile">
-        {% if user.is_authenticated %}
-        
-    <h2>Dashboard</h2>
-    <br>   
-        <p>Firstname: {{request.user.first_name}} </p>    
-        <p>Lastname: {{request.user.last_name}} </p> 
-        <p>Email: {{student.email}}</p>    
-        <p>Username: {{request.user.username}}</p>    
-        <p>Address: {{student.address}}</p>    
-        <p>Mobile: {{student.mobile}}</p>
-        
-        {% endif %}
 
+    {% comment %} {% for student in students %} {% endcomment %}
+    <div class="container studen_desktop_view">
+        <div class="col-md">
+            <div class="row">
+                <h2>Dashboard</h2>
+                <br>   
+                <p>Firstname: {{request.user.first_name}} </p>    
+                <p>Lastname: {{request.user.last_name}} </p> 
+                <p>Email: {{student.email}}</p>    
+                <p>Username: {{request.user.username}}</p>    
+                <p>Address: {{student.address}}</p>    
+                <p>Mobile: {{student.mobile}}</p>
+                
+                
+            </div>
+        </div>
+        
+        
     </div>
     
-{% comment %} {% endfor %} {% endcomment %}
+    
+    
+    
+    <section class="student_mobile_view">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div class="Student-Profile ;">
+                <div style= "z-index:1; "  class=" container  text-white">
+                    <div class="col-md">
+                        <h2>Dashboard</h2>
+                        <span style= "margin-right:;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span>
+                        <div class="row">                    
+                         <p>Full Name: {{request.user.first_name}} {{request.user.last_name}}  </p> 
+                        </div>
+        
+                        <div class="row">
+                         <p>Email: {{student.email}}</p>  
+                        </div>
+        
+                        <div class="row">
+                        <p>Address: {{student.address}}</p>
+                        </div>
+        
+                        <div class="row">
+                        <p>Mobile: {{student.mobile}}</p>
+                        </div>
+        
+                        </div>
+                        </div>
+                       
+            </div>
+            
+        </div>
+        
+    </section>
+    {% comment %} {% endfor %} {% endcomment %}
+    {% endif %}
 
 
 
 
-{% include "student/footer.html" %}
-  
+{% comment %} {% include "student/footer.html" %} {% endcomment %}
+  <script>
+    const studentAction = document.querySelector('.student_actions')
+    const stdImage = document.querySelector('.user_img')
+    studentAction.style.display = "none";
+clickCount=0;
+    stdImage.addEventListener('click', ()=>{
+        clickCount++;
+
+        if (clickCount % 2 == 1){
+            studentAction.style.display = "block";
+            console.log(clickCount%2)
+
+        }else{
+            console.log(clickCount%2)
+            studentAction.style.display = "none";
+            
+        }
+    })
+
+  </script>
 </body>
 </html>
