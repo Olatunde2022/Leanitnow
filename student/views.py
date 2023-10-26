@@ -178,26 +178,26 @@ def student_signup_view(request):
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
     # studentForm=UserCreationForm ()
+    mydict={'userForm':userForm,'studentForm':studentForm}
     if request.method=='POST':
-        mydict={'userForm':userForm,'studentForm':studentForm}
         userForm=forms.StudentUserForm(request.POST)
         studentForm=forms.StudentForm(request.POST,request.FILES)
-        return render(request,'student/studentsignup.html',context=mydict)
         # if userForm and studentForm != None:
         #     messages.success(request, "You've successfully signup with us")
         #     return redirect(reverse('studentlogin'))
         # else:
         #     messages.error(request,'There is empty field, kindly check')
         #     return render(request,'student/studentsignup.html',context=mydict)
-    if userForm.is_valid() and studentForm.is_valid():
-        user=userForm.save()
-        user.set_password(user.password)
-        user.save()
-        student=studentForm.save(commit=False)
-        student.user=user
-        student.save()
-        my_student_group = Group.objects.get_or_create(name='STUDENT')
-        my_student_group[0].user_set.add(user)
+            return render(request,'student/studentsignup.html',context=mydict)
+        if userForm.is_valid() and studentForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            student=studentForm.save(commit=False)
+            student.user=user
+            student.save()
+            my_student_group = Group.objects.get_or_create(name='STUDENT')
+            my_student_group[0].user_set.add(user)
         return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
 
