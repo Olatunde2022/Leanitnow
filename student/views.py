@@ -206,11 +206,12 @@ def dashboard(request):
     if request.method == "POST":
         student = Student.objects.get(user=user)
         context= {"student":student, "user":user }
-        if not request.user.is_authenticated:
-            messages.info(request, "You are not authorized, kindly login")
-            return redirect(reverse('studentlogin'))
+        return redirect(reverse('student-dashboard', context))
+    if not request.user.is_authenticated:
+        messages.info(request, "You are not authorized, kindly login")
+        return redirect(reverse('studentlogin'))
     
-    return render(request,'student/for_dashboard.html', context)
+    return render(request,'student/for_dashboard.html')
     # return render(request,'student/for_dashboard.html', context)
 
 def changeprofile(request):
