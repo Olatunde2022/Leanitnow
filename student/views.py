@@ -187,8 +187,6 @@ def student_signup_view(request):
         #     return redirect(reverse('studentlogin'))
         # else:
         #     messages.error(request,'There is empty field, kindly check')
-        #     return render(request,'student/studentsignup.html',context=mydict)
-            return render(request,'student/studentsignup.html',context=mydict)
         if userForm.is_valid() and studentForm.is_valid():
             user=userForm.save()
             user.set_password(user.password)
