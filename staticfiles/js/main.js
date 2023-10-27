@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const currentYr = new Date().getFullYear();
     // set the year span element's text to the current year
     yrSpan.textContent = currentYr;
-        });
+});
 // To show/hide menu
 
 
@@ -36,3 +36,4 @@ const closeNav =  () => {
 }
 
 closeBtn.addEventListener('click', closeNav)
+

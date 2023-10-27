@@ -503,8 +503,8 @@ display:none;
 
   <article class="testimonial swiper-slide">
     <div class="avater">
-            {% comment %} <img src="{{student.profile_pic.url}}" alt="student image">        {% endcomment %}
-            <img src="" alt="student image">       
+            <img src="{{student.profile_pic.url}}" alt="student image">       
+            {% comment %} <img src="" alt="student image">        {% endcomment %}
     </div>
     <div class="testimonial__info">
         <h5>{{review.Name}}</h5>
@@ -530,6 +530,20 @@ display:none;
         </div>
     </article>
     {% endif %}
+    <article class="testimonial swiper-slide">
+        <div class="avater"> 
+            <span style="padding:5% ;background:#6c63ff;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+              </span>
+        </div>
+        <div class="testimonial__info">
+            <h5>{{review.Name}}</h5>
+            <small>Non Student</small>
+            <div class="testimonial__body">
+                <p>{{review.Body}}</p>                       
+            </div>
+        </div>
+    </article>
     {% endfor %} 
 
 </div>

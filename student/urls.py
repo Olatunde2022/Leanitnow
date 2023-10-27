@@ -16,7 +16,7 @@ path('resetdone', PasswordResetDoneView.as_view(template_name='student/resetdone
 path('resetcomplete', PasswordResetCompleteView.as_view(template_name='student/resetcomplete.html'),name='resetcomplete'),
 path('resetconfirm/<uidb64>/<token>', PasswordResetConfirmView.as_view(template_name='student/resetconfirm.html'),name='resetconfirm'),
 # accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
-path('studentsignup', views.student_signup_view,name='studentsignup'),
+path('studentsignup', views.studentSignup,name='studentsignup'),
 path('student-dashboard', views.dashboard,name='student-dashboard'),
 path('cahnge-profile', views.changeprofile,name='cahnge-profile'),
 # path('resetdone', auth_views.PasswordResetView.as_view(template_name='student/forgotpassword.html'),name='resetdone'),

@@ -174,7 +174,7 @@ def is_student(user):
 #         # Return an 'invalid login' error message.
 #         return  HttpResponse('<h3>There is an error from login request</h3>')
 
-def student_signup_view(request):
+def student_signup(request):
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
     # studentForm=UserCreationForm ()
@@ -196,10 +196,34 @@ def student_signup_view(request):
             student.save()
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
-        return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
+            return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
         # return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
 
+
+
+def studentSignup(request):
+    userForm=forms.StudentUserForm()
+    studentForm=forms.StudentForm()
+    # studentForm=UserCreationForm ()
+    mydict={'userForm':userForm,'studentForm':studentForm}
+    if request.method=='POST':
+        userForm=forms.StudentUserForm(request.POST)
+        studentForm=forms.StudentForm(request.POST,request.FILES)
+        
+        if userForm.is_valid() and studentForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            student=studentForm.save(commit=False)
+            student.user=user
+            student.save()
+            my_student_group = Group.objects.get_or_create(name='STUDENT')
+            my_student_group[0].user_set.add(user)
+            return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
+        # return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
+    return render(request,'student/studentsignup.html',context=mydict)
+    
 
 def dashboard(request):
     user = request.user

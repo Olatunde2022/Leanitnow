@@ -173,8 +173,8 @@
         <div class="container-fluid">
             <ul style= "">
             {% if user.is_authenticated %}            
-            <li><span style= "margin-right: 57rem !important;"><img src="" alt="student image" class="user_img "></span></li>
-            {% comment %} <li><span style= "margin-right: 57rem !important;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span></li> {% endcomment %}
+            {% comment %} <li><span style= "margin-right: 57rem !important;"><img src="" alt="student image" class="user_img "></span></li> {% endcomment %}
+            <li><span style= "margin-right: 57rem !important;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span></li>
             {% endif %}
         </ul>
         </div>
@@ -225,8 +225,8 @@
                     <div class="col-md">
                         <h2>Dashboard</h2>
 
-                        <span style= "margin-right:;"><img src="" alt="student image" class="users_img "></span>
-                        {% comment %} <span style= "margin-right:;"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img "></span> {% endcomment %}
+                        {% comment %} <span style= "margin-right:;"><img src="" alt="student image" class="users_img "></span> {% endcomment %}
+                        <span style= "margin-right:;"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img "></span>
                         
                        
                         <div class="row">                    
