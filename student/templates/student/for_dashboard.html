@@ -188,7 +188,8 @@
         <div class="student_actions pe-3">            
             <ul>                
                 <li><a href="logout" class="logout_btn">Logout</a> </li>
-                <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li>
+                <li><a href="" class="">Update profile</a></li>
+                {% comment %} <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li> {% endcomment %}
                 {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
             </ul>
         </div>
@@ -223,7 +224,8 @@
                     <div class="col-md">
                         <h2>Dashboard</h2>
 
-                        <span style= "margin-right:;"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img "></span>
+                        <span style= "margin-right:;"><img src="" alt="student image" class="users_img "></span>
+                        {% comment %} <span style= "margin-right:;"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img "></span> {% endcomment %}
                         
                        
                         <div class="row">                    
@@ -249,7 +251,7 @@
                                 {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
                             </ul>
                         </div>
-                        
+
                         </div>
                         </div>
                        
