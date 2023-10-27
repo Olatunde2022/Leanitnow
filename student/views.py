@@ -196,7 +196,8 @@ def student_signup_view(request):
             student.save()
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
-        return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
+        return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
+        # return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
 
 
@@ -247,7 +248,8 @@ def changeprofile(request):
             student.profile_pic = img
         student.save()
         messages.success(request, 'Your profile is updated successfully') 
-        return HttpResponseRedirect('student-dashboard') #USING THIS DOES'NT REQUIRE APP NAME
+        return redirect(reverse('student:student-dashboard')) #USING THIS REQUIRES APP NAME
+        # return HttpResponseRedirect('student-dashboard') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request, 'student/change_profile.html',context )
 
 
@@ -262,7 +264,8 @@ def Login(request):
 			if user is not None:
 				login(request, user)                           
 				messages.info(request, f"You are now logged in as {username}.")                              
-				return HttpResponseRedirect('student-dashboard') #USING THIS DOES'NT REQUIRE APP NAME
+				return redirect(reverse('student:student-dashboard')) #USING THIS REQUIRES APP NAME
+				# return HttpResponseRedirect('student-dashboard') #USING THIS DOES'NT REQUIRE APP NAME
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
