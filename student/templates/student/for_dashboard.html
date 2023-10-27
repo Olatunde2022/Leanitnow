@@ -173,7 +173,8 @@
         <div class="container-fluid">
             <ul style= "">
             {% if user.is_authenticated %}            
-            <li><span style= "margin-right: 57rem !important;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span></li>
+            <li><span style= "margin-right: 57rem !important;"><img src="" alt="student image" class="user_img "></span></li>
+            {% comment %} <li><span style= "margin-right: 57rem !important;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span></li> {% endcomment %}
             {% endif %}
         </ul>
         </div>
@@ -189,7 +190,7 @@
             <ul>                
                 <li><a href="logout" class="logout_btn">Logout</a> </li>
                 <li><a href="" class="">Update profile</a></li>
-                {% comment %} <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li> {% endcomment %}
+                <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li>
                 {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
             </ul>
         </div>
