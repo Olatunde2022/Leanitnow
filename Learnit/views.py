@@ -25,9 +25,13 @@ def Index(request):
         return render(request, 'Learnit/index.html')
     
     if request.user.is_authenticated:
-        student = Student.objects.get(user=user)
         fetch_review = myReview.objects.all()
-        context = {'Review': fetch_review, "student": student, "user":user}
+        student_exit = Student.objects.filter(user=user).exists()
+        if student_exit:
+            student = Student.objects.get(user=user)
+            context = {'Review': fetch_review, "student": student, "user":user}
+        else:
+            context = {'Review': fetch_review, "user":user}
         # return redirect(reverse(request, 'Learnit_Index_page'))
         return render(request, 'Learnit/index.html', context) #USING THIS REQUIRES APP NAME
     return render(request, 'Learnit/index.html')

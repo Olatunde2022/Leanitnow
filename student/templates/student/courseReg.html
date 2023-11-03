@@ -1,0 +1,138 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>course reg</title>
+    
+    <link rel="stylesheet" href="{% static 'style/CourseReg.css'%}">
+    <link rel="stylesheet" href="{% static 'style/index.css'%}">
+    <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
+</head>
+<body>
+    
+    {% comment %} {% include "student/navbar.html" %} {% endcomment %}
+
+    {% comment %} {% for message in messages %}
+<p class="{{message.tags}}">{{message}} </p>
+{% endfor %} {% endcomment %}
+ <div class="container">
+    <h2 class="text-center m-3">Course Registration</h2><hr>
+    <form action="" method="POST">
+        {% csrf_token %}
+       
+            
+            <div class="col-md course_reg">
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="6" name ="WebDevelopment"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Web Development</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="7" name ="PythonDevelopment"   id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Python Development</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="8" name ="DevopTools" id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Devop Tools</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="9" name ="DataAnalysis"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Data Analysis</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="10" name ="ML" id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Machine Learn</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="11" name ="Cloudcomp" id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Cloud Computing</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="12" name ="ProjectManagement"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Project Management</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="13" name ="CyberSecurity"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Cyber Security</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="14" name ="BlockchainDevelopment"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Blockchain Development</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="15" name ="DigitalMarketing"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Digital Marketing</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="16" name ="UI_UXDesign"   id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">UI/UX Design</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="17" name ="NLP"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Natural Language Processing (NLP)</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="18" name ="MobileDevelopment"   id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Mobile Development</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"  value="19" name ="IoT"  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">Internet of Thing</label>
+                    </div>
+                </div> 
+                {% comment %} <div>
+                    <div class="row"><input type="checkbox"   value="6" name ="WebDevelopment" > Web Development</div>  
+                    <div class="row"><input type="checkbox"   value="7" name ="PythonDevelopment" >Python Development</div>
+                    <div class="row"><input type="checkbox"   value="8" name ="DevopTools" >Devop Tools</div>
+                    <div class="row"><input type="checkbox"   value="9" name ="DataAnalysis" > Data Analysis </div>
+                    <div class="row"><input type="checkbox"   value="10" name ="ML" > Machine Learn </div>
+                    <div class="row"><input type="checkbox"   value="11" name ="Cloudcomp">Cloud Computing</div>
+                    <div class="row"><input type="checkbox"   value="12" name ="ProjectManagement" >Project Management</div>
+                    <div class="row"><input type="checkbox"   value="13" name ="CyberSecurity">Cyber Security</div>
+                    <div class="row"><input type="checkbox"   value="14" name ="BlockchainDevelopment">Blockchain Development</div>
+                    <div class="row"><input type="checkbox"   value="15" name ="DigitalMarketing">Digital Marketing</div>
+                    <div class="row"><input type="checkbox"   value="16" name ="UI_UXDesign" >UI/UX Design</div>
+                    <div class="row"><input type="checkbox"   value="17" name ="NLP">Natural Language Processing (NLP)</div>
+                    <div class="row"><input type="checkbox"   value="18" name ="MobileDevelopment" >Mobile Development</div>
+                    <div class="row"><input type="checkbox"   value="19" name ="IoT" >Internet of Thing</div>
+
+                </div>  {% endcomment %}                
+                <button class="btn btn-lg bg-info mt-3">Submit</button>
+            
+            </div>
+
+    </form>
+<div class="ms-5 mt-2"><a href="{% url 'student:studentsignup' %}">Login or Register</a></div>
+   
+
+</div>
+    </body>
+</html>

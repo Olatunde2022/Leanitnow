@@ -118,16 +118,38 @@
   }
   
   .Student-Profile::after {
-    content: '';
-    position: absolute;
-    background: #07182E;
-    ;
-    inset: 5px;
-    border-radius: 15px;
-  } 
+      content: '';
+      position: absolute;
+      background: #07182E;
+      ;
+      inset: 5px;
+      border-radius: 15px;
+    } 
     
-
-
+    .studen_desktop_view{
+        background:#2e3267;
+        padding-left:15%; 
+        padding-top:5%; 
+        padding-bottom:5%
+    }
+  .rows{
+    display: flex;
+    margin-bottom:5%;
+      
+    }    
+.rows div{
+    color:#98f3d8;
+}
+.rows div h4{
+    color:#ed60a6;
+}
+small{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size:20px;
+}
+.left{
+    margin-left:25rem;
+}
   
   /* Media queries (Mobile) */
   @media screen and (max-width: 600px) {
@@ -145,23 +167,28 @@
 .studen_desktop_view{
     display:none;
 }
+.desktop_view{
+    display:none !important;
+}
 
 }
 
 /* Media queries (Tablet) */
-@media screen and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .student_mobile_view{
         display:block;
     }
     .bg-body-tertiary{
+        display:none;    
+    }
+    
+    .studen_desktop_view{
         display:none;
-    background:#6c63ff !important;    
-}
-
-.studen_desktop_view{
-    display:none;
-}
-
+    }
+    .desktop_view{
+        display:none;
+    }
+    
 }
 </style>
 </head>
@@ -189,32 +216,43 @@
         <div class="student_actions pe-3">            
             <ul>                
                 <li><a href="logout" class="logout_btn">Logout</a> </li>
-                <li><a href="" class="">Update profile</a></li>
                 <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li>
                 {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
             </ul>
         </div>
 
     {% comment %} {% for student in students %} {% endcomment %}
-    <div class="container studen_desktop_view">
-        <div class="col-md">
-            <div class="row">
-                <h2>Dashboard</h2>
-                <br>   
-                <p>Firstname: {{request.user.first_name}} </p>    
-                <p>Lastname: {{request.user.last_name}} </p> 
-                <p>Email: {{student.email}}</p>    
-                <p>Username: {{request.user.username}}</p>    
-                <p>Address: {{student.address}}</p>    
-                <p>Mobile: {{student.mobile}}</p>
+    <section class="desktop_view"style="background:#0dcaf0;">
+        <div class="container studen_desktop_view">
+            <div class="col-md">
+    
+                <h2 style="margin-left:-25rem;">Dashboard</h2>
                 
-                
+                <div class="rows">
+                    <div><h4>Firstname:</h4><small>{{request.user.first_name}}</small></div>
+    
+                    <div class="left"><h4 >Lastname:</h4><small>{{request.user.last_name}}</small></div>
+                </div>
+    
+                <div class="rows">
+                    <div><h4>Username:</h4><small>{{request.user.username}}</small></div>
+    
+                    <div class="left"><h4>Mobile:</h4><small >{{student.mobile}}</small></div>               
+                </div>
+    
+                <div class="rows">
+                    <div><h4>Email:</h4><small>{{student.email}}</small></div>
+    
+                    <div class="left" style="margin-left: 34%;"><h4>Address:</h4><small>{{student.address}}</small></div>
+                </div>
             </div>
+            
+            
+        <li><a class="btn btn-lg bg-info" href="{% url 'student:course-reg' %}">Course registration</a></li>   
         </div>
         
-        
-    </div>
-    
+
+    </section>
     
     
     
@@ -262,9 +300,9 @@
         
     </section>
     {% comment %} {% endfor %} {% endcomment %}
+    <br>
+        <li><a href="{% url 'student:course-reg' %}">Course registration</a></li>   
     {% endif %}
-
-
 
 
 {% comment %} {% include "student/footer.html" %} {% endcomment %}

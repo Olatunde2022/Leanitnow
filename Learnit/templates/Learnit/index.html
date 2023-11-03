@@ -233,13 +233,14 @@ display:none;
 <section class="courses">
     <h2>Our Popular Courses</h2>
     <div class="container courses__container">
+
         <article class="course">
             <div class="course__image">
                 <img src="{% static 'image/course1.jpg' %}" alt="">
             </div>
             <div class="course__info">
                 <h4>Responsive Social Media Website UI Design</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                <p>Learn how to design responsive social media website user interfaces that look great and function perfectly on all devices, from desktop computers to smartphones. </p>
                 <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
             </div>
         </article>
@@ -250,21 +251,22 @@ display:none;
             </div>
             <div class="course__info">
                 <h4>Responsive SmartHome Website Design</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                <p>SmartHome websites are becoming increasingly popular, as more and more people are using smart devices in their homes, we are here to take you through this journey.</p>
                 <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
             </div>
         </article>
 
         <article class="course">
             <div class="course__image">
-                <img src="{% static 'image/course3.jpg' %}" alt="">
+                <img src="{% static 'image/devops.jpg' %}" alt="">
             </div>
             <div class="course__info">
-                <h4>Responsive Admin Dashboard UI Design</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                <h4>Devops And Tools</h4>
+                <p>Showing you how to use DevOps principles with Google Cloud Platform (GCP) to develop applications and services, monitor, and maintain a complete application using DevOps in practice</p>
                 <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
             </div>
         </article>
+
     </div>
 </section>
 <!-- Courses Ends -->
@@ -340,6 +342,7 @@ display:none;
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, quod autem. Cumque sequi consectetur, laboriosam aut eius delectus veniam quos debitis? Necessitatibus consequatur hic magnam illo tenetur suscipit veritatis culpa?</p>
             </div>
         </article>
+
         <article class="faq">
             <div class="faqs__icon"><i class="uil uil-plus"></i></div> 
             <div class="question__answer">
@@ -530,7 +533,7 @@ display:none;
         </div>
     </article>
     {% endif %}
-    <article class="testimonial swiper-slide">
+    {% comment %} <article class="testimonial swiper-slide">
         <div class="avater"> 
             <span style="padding:5% ;background:#6c63ff;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
@@ -543,7 +546,7 @@ display:none;
                 <p>{{review.Body}}</p>                       
             </div>
         </div>
-    </article>
+    </article> {% endcomment %}
     {% endfor %} 
 
 </div>

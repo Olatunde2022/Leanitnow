@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
-from .models import Student
+from .models import Student, myCourse
 from .forms import StudentForm
 from django.db.models import Sum
 from django.contrib.auth.models import Group
@@ -230,8 +230,12 @@ def dashboard(request):
     if request.method == "POST":
         return render(request,'student/for_dashboard.html')
     if request.user.is_authenticated:
-        student = Student.objects.get(user=user)
-        context= {"student":student, "user":user }
+        student_exit = Student.objects.filter(user=user).exists()
+        if student_exit:
+            student = Student.objects.get(user=user)
+            context= {"student":student, "user":user }
+        else:
+            context= { "user":user }
         return render(request,'student/for_dashboard.html', context)
     else:    
         messages.info(request, "You are not authorized, kindly login")
@@ -315,3 +319,179 @@ def ForgotPassord(request):
         
     return render(request, 'student/forgotpassword.html')
 
+    ''''
+def Course(request):
+    user = request.user
+    if request.method == 'POST':
+        form = CourseRegistrationForm(request.POST)
+        if form.is_valid():
+            courses = form.cleaned_data['courses']
+            for course in courses:
+                student_course = StudentCourse(student = request.user, course=course)
+                student_course.save()
+            form.save()
+            messages.success(request, 'Courses selected')
+            return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME
+    else:
+        form = CourseRegistrationForm()
+    return render(request, 'student/courseReg.html',{'form':form})
+    '''''        
+        # return render(request, 'student/courseReg.html')
+        # if request.user.is_authenticated: 
+        #     student = Student.objects.get(user=user)  
+        #     currentStudent = request.user
+        #     stdId = currentStudent.id
+        #     print(student)
+        # form = request.POST
+        
+        # course1 = Student.objects.create(courseName = 'WebDevelopment')
+        # course2 = Student.objects.create(courseName = 'MobileDevelopment')
+        # course3 = Student.objects.create(courseName = 'PythonDevelopment')
+        # course4 = Student.objects.create(courseName = 'DataAnalysis')
+        # course5 = Student.objects.create(courseName = 'DevopnTools')
+        # course6 = Student.objects.create(courseName = 'UI/UXDesign')
+        # course7 = Student.objects.create(courseName = 'CyberSecurity')
+        # courses = myCourse(course = [course1, course2, course3, course4, course5, course6, course7])
+        # courses.save()
+        
+        # courseName = form.get('courseName')      
+        # course = myCourse.objects.create(courseName=courseName)
+        # course = myCourse.objects.create(=courseName)
+        # course.save()
+        # student = Student.objects.get(user=user)
+        # print(student.id)
+        # currentStudent = request.user
+        # stdId = currentStudent.id
+        # print(stdId)
+    '''''
+        if request.user.is_authenticated: 
+            student_exit = Student.objects.filter(user=user).exists()
+            if student_exit:
+                my_student = Student.objects.get(user=user)
+                Id = my_student.id
+                print(Id)
+                student = Student.objects.get(id=Id)
+                course_names = request.POST.getlist('course_names')
+                for course_name in course_names:
+                    course1 = myCourse.objects.get(coursename=course_name)
+                    course2 = myCourse.objects.get(coursename=course_name)
+                    course3 = myCourse.objects.get(coursename=course_name)
+                    course4 = myCourse.objects.get(coursename=course_name)
+                    course5 = myCourse.objects.get(coursename=course_name)
+                    course6 = myCourse.objects.get(coursename=course_name)
+                    course7 = myCourse.objects.get(coursename=course_name)
+                    studentCourse=student.course_names.add(course1,course2,course3,course4)
+                    student.save()
+                    course_names = student.course_names.all()
+                    print(course)
+                    print(studentCourse)
+                    print(course_names)
+                    messages.success(request, 'Courses selected')
+                    return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME
+            else:
+                messages.error(request, 'The authenticated user does not exist in the category of STUDENT, kindly login first')
+                return render(request, 'student/courseReg.html')
+        else:
+            messages.error(request, 'This user is not authenticated')
+            return render(request, 'student/courseReg.html')
+            
+        
+        # course_names = request.POST.getlist('course_names')
+        # course = myCourse(courseName=','.join(course_names))
+        # course.save()
+        
+        
+       
+        # HttpResponseRedirect('payment') #USING THIS DOES'NT REQUIRE APP NAME       
+
+    return render(request, 'student/courseReg.html')
+    '''''
+
+def Course(request):
+    user = request.user
+    if request.method == 'POST':
+        form = request.POST
+        # return render(request, 'student/courseReg.html')
+        if request.user.is_authenticated: 
+            student_exit = Student.objects.filter(user=user).exists()
+            if student_exit:
+                my_student = Student.objects.get(user=user)
+                # course_names = request.POST.getlist('course_names')
+                course6 = form.get('WebDevelopment')
+                course7 = form.get('PythonDevelopment')
+                course8 = form.get('DevopTools')
+                course9 = form.get('DataAnalysis')
+                course10 = form.get('ML')
+                course11 = form.get('Cloudcomp')
+                course12 = form.get('ProjectManagement')
+                course13 = form.get('CyberSecurity')
+                course14 = form.get('BlockchainDevelopment')
+                course15 = form.get('DigitalMarketing')
+                course16 = form.get('UI_UXDesign')
+                course17 = form.get('NLP')
+                course18 = form.get('MobileDevelopment')
+                course19 = form.get('IoT')
+                
+                if course6:
+                    course=myCourse.objects.get(id=6)
+                    my_student.studentcourse.add(course)
+                if course7:
+                    course=myCourse.objects.get(id=7)
+                    my_student.studentcourse.add(course)
+                if course8:
+                    course=myCourse.objects.get(id=8)
+                    my_student.studentcourse.add(course)
+                if course9:
+                    course=myCourse.objects.get(id=9)
+                    my_student.studentcourse.add(course)
+                if course10:
+                    course=myCourse.objects.get(id=10)
+                    my_student.studentcourse.add(course)
+                if course11:
+                    course=myCourse.objects.get(id=11)
+                    my_student.studentcourse.add(course)
+                if course12:
+                    course=myCourse.objects.get(id=12)
+                    my_student.studentcourse.add(course)
+                if course13:
+                    course=myCourse.objects.get(id=13)
+                    my_student.studentcourse.add(course)
+                if course14:
+                    course=myCourse.objects.get(id=14)
+                    my_student.studentcourse.add(course)
+                if course15:
+                    course=myCourse.objects.get(id=15)
+                    my_student.studentcourse.add(course)
+                if course16:
+                    course=myCourse.objects.get(id=16)
+                    my_student.studentcourse.add(course)
+                if course17:
+                    course=myCourse.objects.get(id=17)
+                    my_student.studentcourse.add(course)
+                if course18:
+                    course=myCourse.objects.get(id=18)
+                    my_student.studentcourse.add(course)
+                if course19:
+                    course=myCourse.objects.get(id=19)
+                    my_student.studentcourse.add(course)
+                                        
+                my_student.save()
+                studentCourse = Student.studentcourse
+                print(studentCourse)
+                messages.success(request, 'Courses selected',{'studentCourse':studentCourse})
+                return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME
+        #     stdId = currentStudent.id
+            else:
+                messages.error(request, 'The authenticated user does not exist in the category of STUDENT, kindly login first')
+                return render(request, 'student/courseReg.html')
+        else:
+            messages.error(request, 'This user is not authenticated')
+            return render(request, 'student/courseReg.html')    
+    return render(request, 'student/courseReg.html')
+        
+
+
+def buyCourse(request):
+    return render(request, 'student/payment.html')
+        
+        

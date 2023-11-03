@@ -48,17 +48,7 @@ body {
 
 
 
-.success{
-    color: #2ecc71;    
-    margin-left: 18.5%;
-    margin-top: 15%;          
-  }
-  .error{
-    color:#f75842;
-    margin-left:5%; 
-    /* margin-left: 18.5%; */
-    margin-top: 15%; 
-  }
+
 
   /* .my_messages{
     margin-left: 20%;
@@ -88,18 +78,7 @@ body {
     border-bottom-right-radius: 50px;
 }
 
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    /* top: 0%; */
-    left: 30%;
-    background: #191919;
-    color:white;
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
+
 
 .box input[type="text"],
 .box input[type="password"] {
@@ -159,7 +138,7 @@ body {
 
 
   /* Media queries (Mobile) */
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     .container{
         width: var(--container-width-sm);
     }
@@ -224,55 +203,7 @@ body {
     }
     
     
-    .box {
-        width: 350px;
-        padding: 20px;
-        position: absolute;
-        top: 5%;
-        left: 8%;
-        background: #191919;
-        color:white;
-        text-align: center;
-        transition: 0.25s;
-        margin-top: 100px
-    }
-    .login_section{
-       
     
-    }
-}  
-/* Media queries (Tablet) */
-@media screen and (max-width: 1024px)  {
-    .success{
-        color: #2ecc71;    
-        margin-left: 5%;
-                
-      }
-      .error{
-        color:#f75842;
-        margin-left:5%; 
-        
-      }
-    
-    .login_section{
-        width: var(--container-width-md);
-        margin-left: 5%;
-    }
-    .box {        
-        position: absolute;
-        left: 20%;
-        top: 5%;
-    }
-    .my_messages{
-        
-        height: 20px;
-    }        
-
-}
-
-/* Media queries (Mobile) */
-@media screen and (max-width: 600px)  {
-
     .success{
         color: #2ecc71;    
         margin-left: 18.5%;
@@ -285,21 +216,25 @@ body {
         margin-top: 15%; 
       }
     
-    .login_section{
-        width: var(--container-width-sm);
-       margin-left: 3%;
-       margin-top: 13%;        
-    }
-    .box {        
-        position: absolute;
-        left: 8%;
-        border-radius: 10%;
-    }
-               
-
-}
+}  
+/* Media queries (Tablet) 
+@media screen and (max-width: 1024px)  {
+    .success{
+        color: #2ecc71;    
+        margin-left: 5%;
+                
+      }
+      
     
-
+    .login_section{
+        width: var(--container-width-md);
+        margin-left: 5%;
+    }
+    .box {
+        margin-top: 15% !important; 
+      } 
+}
+*/
 
 
 

@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from . import models
 from django.contrib.auth.forms import UserChangeForm
+from .models import Student, myCourse
+from django.forms import ModelMultipleChoiceField, ModelForm
 # from quiz import models as QMODEL
 
 class StudentUserForm(forms.ModelForm):
@@ -16,6 +18,12 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model=models.Student
         fields=['address','mobile','profile_pic']
+        
+# class (forms.ModelForm):
+#     courseName = ModelMultipleChoiceField(queryset=Student.objects.all())    
+#     class Meta:
+#         model = myCourse
+#         fields = ['courseName']
 
 
 class EditUserProfileForm(UserChangeForm):

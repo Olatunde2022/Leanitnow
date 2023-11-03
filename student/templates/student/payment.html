@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>payment </title>
+  
+  <link rel="stylesheet" href="{% static 'style/payment.css'%}">
+  <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
+</head>
+<body>
+  <div class="container-fluid">
+  <h2>Payment Gateway</h2>
+  {% if user.is_authenticated%}
+  
+    <div class="col-md">
+
+      <div class="row">
+        <p>Dear Student, thanks for your interest in our career structuring courses, kindly confirm the registered courses if they are actually what you needed. You can continue with payment for your selected courses and make sure you follow the instructions accordingly, contact us on our "Contact" page if there is any problem making your payment. Thank you!</p>
+      </div>
+      <div class="row">
+        <p>The following are your selected courses, pls be aware that the courses would be made accessible as soon as we confirm your payment. However, this payment is not refundable. 
+           </p>
+      </div>
+
+    </div>
+
+  </div>
+  <section class="payment_options">
+
+    <div class="container-fluid">
+    <div class="options">
+
+      {% comment %} <div class="option red">
+          <p class="tip">Hover Me</p>
+          <p class="second-text">Lorem Ipsum</p>
+      </div> {% endcomment %}
+
+      <div class="option blue">
+        <p class="tip">BTC</p>
+        <p class="second-text">BTC here</p>
+      </div>
+      <div class="option green">
+          <p class="tip">Deposit</p>
+          <p class="second-text">Deposit here</p>
+      </div>
+  </div>
+
+<div class="btc_deposit">
+
+  <div class="btc">
+  <p>Please scan the bellow code for your payment, or copy the wallet address.</p>
+  <div class="qrcode"><img src="{% static 'image/wallet_add.jpg' %}" style="max-width:40%;" alt=""></div>
+    <div class="wallet_text"><p>bc1qxuzqnrplh69jv03lk3k7t4spw9wksl7es9fw43</p></div>
+  </div>
+
+  <div class="deposit">
+    <p>Make a complete payment in to the following account details and upload your proof</p>
+  </div>
+
+</div>
+  </div>
+  </section>
+  {% for courses in studentCourse %}
+  <p>courses</p>
+  {% endfor %}
+  {% endif %}
+</div>
+</body>
+</html>

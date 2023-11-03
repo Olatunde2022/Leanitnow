@@ -1,0 +1,64 @@
+.btc_deposit{
+    margin-left: 40%;
+    max-width: 70%;
+    margin-top: -10%;
+}
+.wallet_text{
+    margin-top: 2%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    font-weight: 100;
+    max-width:40%;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 80px;
+    width: 170px;
+    margin-top: 10%;
+  }
+  
+  /* .options .red {
+    background-color: #f43f5e;
+  } */
+  
+  .options .blue {
+    background-color: #3b82f6;
+  }
+  
+  .options .green {
+    background-color: #22c55e;
+  }
+  
+  .options .option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 70px;
+    width: 150px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .options .option p.tip {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  
+  .options .option p.second-text {
+    font-size: .7em;
+  }
+  
+  .options .option:hover {
+    transform: scale(1.1, 1.1);
+  }
+  
+  .options:hover > .option:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+  }

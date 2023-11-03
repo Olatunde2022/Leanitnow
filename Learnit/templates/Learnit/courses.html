@@ -15,8 +15,8 @@
         body{
             background-image: url("/static/image/bg.jpg");
             ontserrat, sans-serif;
-        line-height: 1.7;
-        color: var(--color-white);
+            line-height: 1.7;
+            color: var(--color-white);
         }
         .courses{
             margin-top: 1rem;
@@ -30,21 +30,22 @@
 <body>
     {% include "student/navbar.html" %}
 
-   
     <!-- NAV Ends -->
 
 
 
     <section class="courses">
         <h2>Our Courses</h2>
+        <span><p style= "font-size: 1.5rem; max-width:70%; margin-left:10%; margin-bottom:3%;">Learnit Institute is a leading provider of online tech courses. We offer a wide variety of courses designed to help you learn the skills you need to succeed in the tech industry. Whether you're a beginner or a seasoned pro, we have a course for you.</p></span>
         <div class="container courses__container">
+
             <article class="course">
                 <div class="course__image">
                     <img src="{% static 'image/course1.jpg' %}" alt="">
                 </div>
                 <div class="course__info">
                     <h4>Responsive Social Media Website UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <p>Learn how to design responsive social media website user interfaces that look great and function perfectly on all devices, from desktop computers to smartphones. </p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
@@ -55,7 +56,7 @@
                 </div>
                 <div class="course__info">
                     <h4>Responsive SmartHome Website Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <p>SmartHome websites are becoming increasingly popular, as more and more people are using smart devices in their homes, we are here to take you through this journey.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
@@ -66,13 +67,14 @@
                 </div>
                 <div class="course__info">
                     <h4>Responsive Admin Dashboard UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <p>Learn how to design and develop responsive admin dashboard UIs that are both functional and visually appealing. Enroll today and learn how to design and develop responsive admin dashboard UIs that will impress your users!</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
+
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/devops.jpg' %}" alt="">
+                    <img src="{% static 'image/Devops.png' %}" alt="">
                 </div>
                 <div class="course__info">
                     <h4>Devops And Tools</h4>
@@ -83,7 +85,7 @@
     
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/data-analy-manag.jpg' %}" alt="">
+                    <img src="{% static 'image/data-analy-manag.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
                     <h4>Data Analysis And Management</h4>
@@ -102,133 +104,102 @@
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
+
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                    <img src="{% static 'image/ML.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive Social Media Website UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Machine Learning</h4>
+                    <p>Learn the different types of machine learning algorithms and how to use them to solve real-world problems. You can develop algorithms that can learn from data and make predictions. </p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
     
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                    <img src="{% static 'image/Ccomp.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive SmartHome Website Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Cloud Computing</h4>
+                    <p>We would help you to build your career in building and deploying applications on cloud computing platforms. Learn the different cloud computing platforms and how to use them to your advantage.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
     
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                    <img src="{% static 'image/NLP.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive Admin Dashboard UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Natural Language Processing (NLP)</h4>
+                    <p>Learnit has all you need in NLP applications development. NLP is a growing field with many potential applications in machine translation and virtual assistants.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
 
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course1.jpg' %}" alt="">
+                    <img src="{% static 'image/PJM.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive Social Media Website UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Project Management</h4>
+                    <p>Lead and manage projects successfully. Learn the different project management methodologies and how to use them to complete projects on time and within budget.</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/DGM.jpeg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Digital Marketing</h4>
+                    <p>Promote products and services online. Learn the different digital marketing channels and how to use them to reach your target audience.</p>
+                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src="{% static 'image/BCH.jpeg' %}" alt="">
+                </div>
+                <div class="course__info">
+                    <h4>Blockchain Development</h4>
+                    <p> Learn the different DevOps tools and practices and how to use them to improve your team's efficiency.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
     
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                    <img src="{% static 'image/RPA.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive SmartHome Website Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Robotic Process Automation (RPA) </h4>
+                    <p>Automate repetitive tasks with RPA. RPA is a growing field, and there is a high demand for RPA developers, Enroll today, make a move and get the best out of yourself.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
     
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course3.jpg' %}" alt="">
+                    <img src="{% static 'image/VR.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive Admin Dashboard UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
-                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
-                </div>
-            </article>
-            <article class="course">
-                <div class="course__image">
-                    <img src="{% static 'image/course1.jpg' %}" alt="">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Social Media Website UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Augmented Reality and Virtual Reality (AR/VR)</h4>
+                    <p>Learn how you can develop AR/VR applications for different platforms. AR/VR is a growing field with many potential applications in gaming, entertainment, education, and healthcare.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>
     
             <article class="course">
                 <div class="course__image">
-                    <img src="{% static 'image/course2.jpg' %}" alt="">
+                    <img src="{% static 'image/IoT.jpeg' %}" alt="">
                 </div>
                 <div class="course__info">
-                    <h4>Responsive SmartHome Website Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
-                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
-                </div>
-            </article>
-    
-            <article class="course">
-                <div class="course__image">
-                    <img src="{% static 'image/course3.jpg' %}" alt="">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Admin Dashboard UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
-                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
-                </div>
-            </article>
-            
-            <article class="course">
-                <div class="course__image">
-                    <img src="{% static 'image/course1.jpg' %}" alt="">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Social Media Website UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
-                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
-                </div>
-            </article>
-    
-            <article class="course">
-                <div class="course__image">
-                    <img src="{% static 'image/course2.jpg' %}" alt="">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive SmartHome Website Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
-                    <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
-                </div>
-            </article>
-    
-            <article class="course">
-                <div class="course__image">
-                    <img src="{% static 'image/course3.jpg' %}" alt="">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Admin Dashboard UI Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laborum delectus facere repellendus reprehenderit, adipisci perferendis?</p>
+                    <h4>Internet of Things (IoT)</h4>
+                    <p>Stand a chance to become  IoT applications developer that connect devices to the internet. The IoT is growing rapidly, and there is a high demand for IoT developers.</p>
                     <a href="{% url 'Learnit_Courses_page' %}" class="btn btn-primary">Learn More</a>
                 </div>
             </article>

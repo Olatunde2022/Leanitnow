@@ -30,6 +30,70 @@ a{
   color: var(--color-white);
   }
 
+  .box {
+    width: 500px;
+    padding: 40px;
+    margin-top:-13% !important;
+    margin-left:20%;
+    background: #191919;
+    color:white;
+    text-align: center;
+    transition: 0.25s;
+}
+.success{
+  color: #2ecc71;    
+  margin-left:35%; 
+  margin-top: 5%;       
+}
+.error{
+  color:#f75842;
+  margin-left:35%; 
+  margin-top: 5%; 
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+.box {
+}
+.login_section{
+  margin-left: 5%;
+}
+.success{
+  color: #2ecc71;    
+  margin-left: 18.5%;
+  margin-top: 15%;          
+}
+.error{
+  color:#f75842;
+  margin-left:5%; 
+  margin-top: 6% !important;
+  margin-bottom: -8%;
+}
+
+  }
+
+
+  /* Media queries (Mobile) */
+  @media (max-width: 480px) {
+    .login_section{
+        width: var(--container-width-sm);
+        max-width: 85% !important;
+        margin-left: 8% !important;       
+    }
+    
+    .box {
+      width: 300px;
+      padding: 20px; 
+      margin-top: -19% !important;      
+      margin-left: 5% !important;
+      background: #191919;
+      color:white;
+      text-align: center;
+      transition: 0.25s;
+  }
+}  
+
 
     </style>
   </head>
@@ -45,8 +109,8 @@ a{
             <p class="{{message.tags}}">{{message}} </p>
             {% endfor %} {% endcomment %}
     
-    <section class="login_section">   
-                  <form class="box" method="post">
+    <section class="login_section" style="margin-top:5%;">   
+                  <form class="box" method="post" style="margin-top:-6%;">
                       {% csrf_token %}
                       <h1>Student Login</h1>
                       <p class="text-muted"> Please enter your login details</p>
@@ -60,8 +124,8 @@ a{
                         </div>
                         
                         <div class="mb-3 form-check ">
-                          <input type="checkbox" class="form-check-input" id="checkme">
-                          <label  class="" for="checkme" style="text-align:left;">Remember me</label>
+                          <input type="" class="" id="checkme" style="background:transparent;">
+                          <label  class="" for="checkme" style="text-align:left;"> </label>
                         </div>                    
   {% comment %} 
                        {% render_field form.username class="form-control" placeholder="Username" %}
@@ -82,14 +146,5 @@ a{
     </section>
 <br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-  <br><br><br><br><br>
-<br><br><br><br><br>
-
-
-
-
-
-{% include "student/footer.html" %}
   </body>
 </html>
