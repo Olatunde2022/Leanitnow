@@ -1,14 +1,70 @@
-.btc_deposit{
-    margin-left: 40%;
+.payment_options{
+
+  padding-left: 10%;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  background: rgb(237, 165, 178);
+}
+
+.bg-white h2{
+  color: #f0a3a3 !important;
+}
+
+.informative_container{
+  background: #6c63ff;
+  color: yellow;
+  padding-left: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+.informative{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  color: whitesmoke;
+  padding-left: 5%;
+}
+.btc_deposit{  
+  border-left: 3px solid greenyellow;
+  padding-left: 2%;
+    margin-left: 20%;
     max-width: 70%;
     margin-top: -10%;
+    margin-bottom: 10%;
+
+}
+.btc p{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+  font-weight: bold;
+  max-width: 40%;
+}
+.wallet_text{
+}
+.wallet_text p{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular';
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: center;
+}
+small{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem !important;
+  color: white;
+}
+.deposit p{
+  font-family: Georgia, 'Times New Roman', 'Arial Narrow Bold', sans-serif;
+  font-family: 1.5;
+  font-weight: bold;
+}
+.deposit{
+  max-width: 45%;
+  padding: 2%;
+  font-size: 1rem;
+  letter-spacing: 3px;
 }
 .wallet_text{
     margin-top: 2%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2rem;
-    font-weight: 100;
-    max-width:40%;
 }
 .options {
     display: flex;
@@ -62,3 +118,167 @@
     filter: blur(10px);
     transform: scale(0.9, 0.9);
   }
+.payment_proof{
+  background: #5996f7;
+  padding-left: 35%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+
+  .custum-file-upload {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e8e8e8;
+    background-color: #0cf0ca;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px #e8e8e8;
+  }
+  
+  .custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .icon svg {
+    height: 80px;
+    fill: #e8e8e8;
+  }
+  
+  .custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .text span {
+    font-weight: 400;
+    color: #e8e8e8;
+  }
+  
+  .custum-file-upload input {
+    display: none;
+  }
+
+
+
+
+
+  /* Media queries (Mobile) */
+  @media (max-width: 480px) {
+
+    .payment_options{
+      padding-left: 5px;
+      padding-top: 2%;
+      padding-bottom: 1%;
+      background: rgb(237, 165, 178);
+    }
+
+    .informative{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 0.8rem;
+      color: whitesmoke;
+      padding-left: 0% !important;
+    }
+    
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 50px;
+  width: 100px;
+  margin-top: 10%;
+}
+.options .option {
+  width: 40px;
+  height: 40px;
+  padding:4px ;
+}
+.options .option p.tip {
+  display: none;
+}
+.options .option p.second-text {
+  margin-top: 10px;
+}
+.options .green { 
+  width: 45px; 
+  padding:15px !important;
+}
+
+.btc_deposit{ 
+    padding-left: 5%;
+    margin-left: 15%;
+    max-width: 80%;
+    margin-top: -10%;
+    margin-bottom: 10%;
+
+}
+
+.btc p{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.6rem;
+  font-weight: bold;
+  max-width: 40%;
+}
+
+.wallet_text p{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular';
+  font-size: 0.45rem;
+  font-weight: bold;
+  letter-spacing: normal;
+  text-align: center;
+}
+small{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.4rem !important;
+  color: white;
+  letter-spacing: normal;
+}
+.deposit p{ 
+  font-family: Cambria, serif;
+  font-size: 0.5rem;
+  font-weight: bold;
+  max-width: 100%;
+  letter-spacing: normal;
+  }
+  .payment_proof{
+    padding-left: 25%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+  }
+  .custum-file-upload {
+    height: 30%;
+    width: 58%;
+  }
+  .custum-file-upload .text span {
+    font-size: 0.6rem;
+    font-weight: normal;
+    color: #e8e8e8;
+  }
+  
+
+  }
+  /* Media queries (Tablet) */
+@media (min-width: 768px) and (max-width: 1024px){
+  small{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.6rem !important;
+    color: white;
+  }
+  .deposit p{  
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.6rem;
+    font-weight: bold;
+    max-width: 100%;
+    }
+
+}
