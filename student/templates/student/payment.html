@@ -33,15 +33,20 @@
       </div>
       <div class="row">
         <p>The following are your selected courses, pls be aware that the courses would be made accessible as soon as we confirm your payment. However, this payment is not refundable. 
-           </p>
+           </p><hr>
+           {% for course in studentCourse %}
+           <p>{{ course }}</p>
+           {% endfor %}
+           <hr>
+           <p style="color:#fd7e14;">Or go back to add more <br><a class="btn btn-lg bg-danger " style="color:#fd7e14;" href="{% url 'student:course-reg' %}"><i class="uil uil-enter"></i></a></p>
       </div>
-
+      
     </div>
-
-</div>
-
-<section class="payment_options">
-
+   
+  </div>
+  
+  <section class="payment_options">
+    
     <div class="container-fluid ms-lg-5 ms-md-2">
 
     <div class="options">
@@ -100,9 +105,6 @@
     </form>
 </section> 
 
-{% for courses in studentCourse %}
-  <p>courses</p>
-  {% endfor %}
   {% endif %}
 </div>
 

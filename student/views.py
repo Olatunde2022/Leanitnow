@@ -287,13 +287,24 @@ def Course(request):
 
 def buyCourse(request):
     user = request.user
+    my_student = Student.objects.get(user=user)
+    studentCourse = my_student.studentcourse.all()
+    # courses = ""
+    # for idx, course in enumerate(studentCourse):
+    #     if idx == 0:
+    #         courses = course.coursename
+    #     elif idx == len(studentCourse) - 1:
+    #         courses = courses + " " + course.coursename
+    #     else:
+    #         courses = courses + " " + course.coursename + ","
     
     if request.method == 'POST':
         form = request.POST
         if request.user.is_authenticated: 
             student_exit = Student.objects.filter(user=user).exists()
             if student_exit:
-                # my_student = Student.objects.get(user=user)                
+                # my_student = Student.objects.get(user=user)
+                                
                 receipt = request.FILES.get('receipt')
                 if receipt:
                     paymentProof =  Proof.objects.create(receipt=receipt)
@@ -310,7 +321,7 @@ def buyCourse(request):
             messages.error(request, 'This user is not authenticated')
             return render(request, 'student/payment.html')      
                 
-    return render(request, 'student/payment.html')
+    return render(request, 'student/payment.html', {'studentCourse':studentCourse})
 
         
         
