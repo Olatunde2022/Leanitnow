@@ -119,6 +119,19 @@
     float:right;
     }
     }
+
+    /* Media queries (Tablet) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .diff{
+        {% comment %} margin-left: 60%; {% endcomment %}
+    }
+    
+    .student_actions{
+        position: absolute;
+        right:4%;
+        top:25%;
+    }
+}
 </style>
 </head>
 <body>
@@ -171,7 +184,7 @@
                 <div class="rows">
                     <div><h4>Email:</h4><small>{{student.email}}</small></div>
     
-                    <div class="left " style=" margin-left:42%;"><h4>Address:</h4><small>{{student.address}}</small></div>
+                    <div class="left diff" style=" margin-left:42%;"><h4>Address:</h4><small>{{student.address}}</small></div>
                 </div>
             </div>
             
