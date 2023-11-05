@@ -189,10 +189,10 @@
             <div class="Student-Profile ;">
                 <div style= "z-index:1; "  class="Stdprofile container  text-white">
                     <div class="col-md mt-5">
-                        <h2>Dashboard</h2>
+                        <h2>Dashboard</h2><hr>
                         {% comment %} <span style= "margin-right:;"><img src="" alt="student image" class="users_img "></span> {% endcomment %}
                         <div class="user_image_container"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img ">
-                        <span><small>Click your smallicture for some actions</p></span>
+                        <span><small>Click your picture for some actions</p></span>
                         </div>
                         
                        
@@ -209,7 +209,7 @@
                         </div>
         
                         <div class="row">
-                        <p>Mobile: {{student.mobile}}</p>
+                        <p style="margin-left: 4%;">Mobile: {{student.mobile}}</p>
                         </div>
                         
                         <div class="student_action pe-3">            
@@ -222,7 +222,7 @@
 
                     </div>
 
-                    <li><a class="" href="{% url 'student:course-reg' %}">Course registration</a></li>   
+                    <li><a class="btn bg-secondary" style="color:#fd7e14;" href="{% url 'student:course-reg' %}">Course registration</a></li>   
                 
                 </div>                       
             </div>

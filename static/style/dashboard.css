@@ -130,8 +130,10 @@ overflow: hidden;
 border-radius: 20px;
 }
 .Stdprofile{ 
-width:90%;
+width:95%;
 height:480px;  
+
+padding-left: 1%;
 }
 
 .row{
@@ -141,6 +143,8 @@ height:480px;
 color: white;
 font-size: 2em;
 text-align: center;
+margin-bottom: 10%;
+background: transparent;
 }
 .user_image_container{
     /* margin-left: 40%;
@@ -151,12 +155,12 @@ text-align: center;
 }
 .user_image_container span{
     position: absolute;
-    top:35%;
-    right:10%;
+    top:40%;
+    right:0%;
     max-width: 30%;
-    
+    filter: blur(0.5px);
     text-align: center;
-    font-size: 8px !important;
+    font-size: 10px !important;
     color: red;
 }
 
