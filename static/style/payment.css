@@ -1,10 +1,12 @@
 
 
-
-.nav_container{
-  background: #f7c94b;
-}
-
+/* 
+nav{
+  background: #f7c94b  !important;
+} */
+.nav__menu li:nth-child(5) {
+  display:none;
+  }
 
 
 .payment_options{
@@ -180,10 +182,18 @@ small{
 
 
 
+  form{
+    text-align: center;
+  }
 
 
   /* Media queries (Mobile) */
   @media (max-width: 480px) {
+    .nav_container{
+      background:#f7c94b ;
+      /* padding-bottom: 15%; */
+    }
+    
     .nav__menu li a{
       color: #f7c94b;
     }
@@ -195,6 +205,10 @@ small{
       background: rgb(237, 165, 178);
     }
 
+    .informative_container{
+      padding-left: 0%;
+      margin-top: -5%;
+    }
     .informative{
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 0.8rem;
@@ -276,11 +290,46 @@ small{
     font-weight: normal;
     color: #e8e8e8;
   }
+
+  
+  .success {
+  margin-top:-6%;
+  background: #20c997;
+  width: 100vw;
+  padding-left: 10%;
+  padding-top: 2%;
+  font-family: monospace;
+  color: white;
+}
+  .error{
+    background: #20c997;
+    color:#f75842;
+    position: absolute;
+    top: 7.5%;
+    width: 100vw;
+    padding-left: 10%;
+    padding-top: 2%;
+    font-family: monospace;
+  }
   
 
+  form{
+    text-align: center;
+  }
   }
   /* Media queries (Tablet) */
 @media (min-width: 768px) and (max-width: 1024px){
+
+  .payment_options{
+    padding-left: 5px;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    background: rgb(237, 165, 178);
+  }
+
+.btc_deposit{
+  margin-left: 40%;
+}
   small{
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.6rem !important;
@@ -293,4 +342,14 @@ small{
     max-width: 100%;
     }
 
+    .informative_container{
+    }
+    .informative{
+      padding-left: 0%;
+      margin-left: 0%;
+      max-width: 95%;
+    }
+    form{
+      text-align: center;
+    }
 }

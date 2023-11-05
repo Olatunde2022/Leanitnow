@@ -7,7 +7,7 @@ class myCourse(models.Model):
     def __str__(self):
         return f"{self.coursename}-{self.id}"
     
-    
+        
 class Student(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(null=True,blank=True)
@@ -17,6 +17,8 @@ class Student(models.Model):
     last_name = models.CharField(max_length=20)
     email = models.EmailField(max_length=50,null=True,blank=True )
     studentcourse = models.ManyToManyField(myCourse)
+    
+    
     
 # class StudentCourse(models.Model):
 #     student = models.ForeignKey(Student, on_delete=models.CASCADE)
@@ -33,6 +35,13 @@ class Student(models.Model):
         return self.user.first_name
     
     
+class Proof(models.Model):
+    receipt = models.ImageField()
+    student = models.ForeignKey(Student,null=True,blank=True,on_delete=models.CASCADE)
+    uploadDateTime = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"No:{self.id} uploaded by {self.student} at {self.uploadDateTime}"
     
     
     

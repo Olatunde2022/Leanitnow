@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
    
-    <link rel="stylesheet" href="{% static 'style/index.css'%}">
+    <link rel="stylesheet" href="{% static 'style/dashboard.css'%}">
     <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
 <style>
     body{
@@ -22,211 +22,43 @@
         text-decoration:none;
         color:#f7c94b;
     }
-    nav{
-        background:#2e3267;
-        height:7rem;
-    }
-    .dashb_link{
-        display:none;
-    }
-   
-    .user_img{
-    border: 1px solid red;
-    width:6rem;
-    height: 6rem;
-    border-radius: 50%;
-    overflow: hidden;
-    margin:0 auto 1rem ;
-    float:right;
-    }
-    .users_img{
-    border: 1px solid red;
-    width:10rem;
-    height: 10rem;
-    border-radius: 50%;
-    overflow: hidden;
-    margin:0 auto 1rem ;
-    float:right;
-    }
     
-    .profile{
-    }
-       
-    .bg-body-tertiary{
-    background:#6c63ff !important;
-    
-}
-
-.student_actions{
-    position: absolute;
-    right:4%;
-    top:35%;
-    background:green;
-}
-.nav__menu li:nth-child(5) {
-    display:none;
-}
-
-
-
-
-
-
-.student_mobile_view{
-    display:none;
-}
-
-
-
-.Student-Profile {
-    width:80%;
-    height:100%;
-    background: #07182E;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    {% comment %} place-content: center; {% endcomment %}
-    place-items: center;
-    overflow: hidden;
-    border-radius: 20px;
-  }
-  
-  .Student-Profile h2 {
-    z-index: 1;
-    color: white;
-    font-size: 2em;
-  }
-  
-  .Student-Profile::before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
-    height: 130%;
-    animation: rotBGimg 3s linear infinite;
-    transition: all 0.2s linear;
-  }
-  
-  @keyframes rotBGimg {
-    from {
-      transform: rotate(0deg);
-    }
-  
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .Student-Profile::after {
-      content: '';
-      position: absolute;
-      background: #07182E;
-      ;
-      inset: 5px;
-      border-radius: 15px;
-    } 
-    
-    .studen_desktop_view{
-        background:#2e3267;
-        padding-left:15%; 
-        padding-top:5%; 
-        padding-bottom:5%
-    }
-  .rows{
-    display: flex;
-    margin-bottom:5%;
-      
-    }    
-.rows div{
-    color:#98f3d8;
-}
-.rows div h4{
-    color:#ed60a6;
-}
-small{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size:20px;
-}
-.left{
-    margin-left:25rem;
-}
-  
-  /* Media queries (Mobile) */
-  @media screen and (max-width: 600px) {
-    .student_mobile_view{
-         display:block;
-        {% comment %} justify-content: center;
-        align-items: center; {% endcomment %} 
-        
-    }
-
-    .bg-body-tertiary{
-        display:none;
-    background:#6c63ff !important;    
-}
-.studen_desktop_view{
-    display:none;
-}
-.desktop_view{
-    display:none !important;
-}
-
-}
-
-/* Media queries (Tablet) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .student_mobile_view{
-        display:block;
-    }
-    .bg-body-tertiary{
-        display:none;    
-    }
-    
-    .studen_desktop_view{
-        display:none;
-    }
-    .desktop_view{
-        display:none;
-    }
-    
-}
 </style>
 </head>
 <body>
     
     {% include "student/navbar.html" %}
 
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <ul style= "">
-            {% if user.is_authenticated %}            
-            {% comment %} <li><span style= "margin-right: 57rem !important;"><img src="" alt="student image" class="user_img "></span></li> {% endcomment %}
-            <li><span style= "margin-right: 57rem !important;"><img src="{{student.profile_pic.url}}" alt="student image" class="user_img "></span></li>
+<section class="header">
+        <div class="container">            
+            {% if user.is_authenticated %}     
+            <span class="user_img_container">
+                <img src="{{student.profile_pic.url}}" alt="student image" class="user_img ">
+            </span>
             {% endif %}
-        </ul>
+            
         </div>
-      </nav>
+</section> 
 
 
       {% if user.is_authenticated %}
-
      
 
     
-        <div class="student_actions pe-3">            
+        <div class="student_actions pe-3 text-white">            
             <ul>                
-                <li><a href="logout" class="logout_btn">Logout</a> </li>
-                <li><a href="{% url 'student:cahnge-profile' %}" class="">Update profile</a></li>
+                <li><a href="logout" class="logout_btn text-white">Logout</a> </li>
+                <li><a href="{% url 'student:cahnge-profile' %}" class="text-white">Update profile</a></li>
                 {% comment %} <li><span><img src="{{student.profile_pic.url}}" alt="student image"></span></li> {% endcomment %}
             </ul>
         </div>
 
     {% comment %} {% for student in students %} {% endcomment %}
-    <section class="desktop_view"style="background:#0dcaf0;">
+    <section class="desktop_view pb-5 pt-5"style="background:#0dcaf0;">
         <div class="container studen_desktop_view">
-            <div class="col-md">
+            <div class="col-md ps-5">
     
-                <h2 style="margin-left:-25rem;">Dashboard</h2>
+                <h2 style="margin-left:15rem; color:white;">Dashboard</h2>
                 
                 <div class="rows">
                     <div><h4>Firstname:</h4><small>{{request.user.first_name}}</small></div>
@@ -243,7 +75,7 @@ small{
                 <div class="rows">
                     <div><h4>Email:</h4><small>{{student.email}}</small></div>
     
-                    <div class="left" style="margin-left: 34%;"><h4>Address:</h4><small>{{student.address}}</small></div>
+                    <div class="left " style=" margin-left:41%;"><h4>Address:</h4><small>{{student.address}}</small></div>
                 </div>
             </div>
             
@@ -301,7 +133,7 @@ small{
     </section>
     {% comment %} {% endfor %} {% endcomment %}
     <br>
-        <li><a href="{% url 'student:course-reg' %}">Course registration</a></li>   
+        <li><a class="mobile_CourseReg" href="{% url 'student:course-reg' %}">Course registration</a></li>   
     {% endif %}
 
 

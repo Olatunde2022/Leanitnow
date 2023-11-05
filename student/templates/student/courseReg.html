@@ -17,20 +17,28 @@
     {% comment %} {% for message in messages %}
 <p class="{{message.tags}}">{{message}} </p>
 {% endfor %} {% endcomment %}
- <div class="container">
+<div class="container">
     <h2 class="text-center m-3">Course Registration</h2><hr>
     <form action="" method="POST">
-        {% csrf_token %}
-       
-            
-            <div class="col-md course_reg">
+        {% csrf_token %}       
+        
+        <div class="col-md course_reg">
+            {% for course in courses %}
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="6" name ="WebDevelopment"  id="flexCheckDefault">
-                        <label class="form-check-label ms-5" for="flexCheckDefault">Web Development</label>
+                        <input class="form-check-input" type="checkbox" value={{course.id}} name ={{course.id}}  id="flexCheckDefault">
+                        <label class="form-check-label ms-5" for="flexCheckDefault">{{course.coursename}}</label>
                     </div>
                 </div>  
-                <div class="row">
+                {% endfor %}
+                <button class="btn btn-lg bg-info mt-3">Submit</button>
+                
+        </div>
+            
+    </form>        
+        <div class="ms-5 mt-2"><a href="{% url 'student:studentsignup' %}">Login or Register</a></div>
+</div>
+                {% comment %} <div class="row">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox"  value="7" name ="PythonDevelopment"   id="flexCheckDefault">
                         <label class="form-check-label ms-5" for="flexCheckDefault">Python Development</label>
@@ -107,7 +115,7 @@
                         <input class="form-check-input" type="checkbox"  value="19" name ="IoT"  id="flexCheckDefault">
                         <label class="form-check-label ms-5" for="flexCheckDefault">Internet of Thing</label>
                     </div>
-                </div> 
+                </div>  {% endcomment %}
                 {% comment %} <div>
                     <div class="row"><input type="checkbox"   value="6" name ="WebDevelopment" > Web Development</div>  
                     <div class="row"><input type="checkbox"   value="7" name ="PythonDevelopment" >Python Development</div>
@@ -125,14 +133,7 @@
                     <div class="row"><input type="checkbox"   value="19" name ="IoT" >Internet of Thing</div>
 
                 </div>  {% endcomment %}                
-                <button class="btn btn-lg bg-info mt-3">Submit</button>
-            
-            </div>
-
-    </form>
-<div class="ms-5 mt-2"><a href="{% url 'student:studentsignup' %}">Login or Register</a></div>
    
 
-</div>
     </body>
 </html>
