@@ -266,9 +266,13 @@ def Course(request):
                 studentCourse = my_student.studentcourse.all()
                 courses = ""
                 for idx, course in enumerate(studentCourse):
-                    if idx
-                print(studentCourse)
-                messages.success(request, f'Courses selected:{studentCourse}')
+                    if idx == 0:
+                        courses = course.coursename
+                    elif idx == len(studentCourse) - 1:
+                        courses = courses + " " + course.coursename
+                    else:
+                        courses = courses + " " + course.coursename + ","
+                messages.success(request, f'Courses selected:{courses}')
                 return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME
         #     stdId = currentStudent.id
             else:
