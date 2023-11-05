@@ -262,8 +262,11 @@ def Course(request):
                             
                         except BaseException:
                             pass
-                my_student.save()   
-                studentCourse = Student.studentcourse
+                my_student.save()
+                studentCourse = my_student.studentcourse.all()
+                courses = ""
+                for idx, course in enumerate(studentCourse):
+                    if idx
                 print(studentCourse)
                 messages.success(request, f'Courses selected:{studentCourse}')
                 return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME

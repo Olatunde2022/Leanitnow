@@ -11,6 +11,8 @@
    
     <link rel="stylesheet" href="{% static 'style/dashboard.css'%}">
     <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
+
+    
 <style>
     body{
         background-image: url("/static/image/bg.jpg");
@@ -23,6 +25,100 @@
         color:#f7c94b;
     }
     
+
+
+
+    
+    /* Media queries (Mobile) */
+@media screen and (max-width: 600px){
+         
+    .student_mobile_view {
+        display:block;    
+   }
+   .header{
+       display: none;
+   }
+   
+   .studen_desktop_view{
+   display:none;
+   }
+   .desktop_view{
+   display:none !important;
+   }
+        
+   nav button{
+    display: inline-block;
+    background: transparent;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+
+  }
+  nav button#close-menu-btn{
+    display: none;
+  }
+  .nav__menu{
+    position: fixed;
+    top: 5rem;
+    right: -8%;
+    height: fit-content;
+    width: 15rem;
+    flex-direction: column;
+    gap: 0;
+    display: none;
+  }
+  .nav__menu li{
+    width: 70%;
+    height: 4rem;
+    animation: animateNavitems 400ms linear forwards;  /* forward means it going to start from the nth state of the keyframe*/
+    transform-origin: top-right;
+    opacity: 0;
+  }
+  .nav__menu li:nth-child(2){
+    animation-delay: 200ms;
+  }
+  .nav__menu li:nth-child(3){
+    animation-delay: 400ms;
+  }
+  .nav__menu li:nth-child(4){
+    animation-delay: 600ms;
+  }
+  @keyframes animateNavitems {
+    0%{
+        transform: rotateZ(-90deg) rotateX(90deg) scale(0.1);
+    }   
+    100%{
+        transform: rotateZ(0) rotateX(0) scale(1);
+        opacity: 1;
+    }
+  }
+
+  .nav__menu li a {
+    background: #0dcaf0;
+    box-shadow: -4rem 6rem 10rem rgba(0, 0, 0, 0.6);
+    width: 90%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    margin-right:-5%;
+  }
+  .nav__menu li a:hover{
+    color: white;
+  }
+   
+    .user_img_container{
+      
+        }
+    .users_img{        
+    border: 2px solid #73ff00;
+    width:4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0 auto 1rem ;
+    float:right;
+    }
+    }
 </style>
 </head>
 <body>
@@ -75,7 +171,7 @@
                 <div class="rows">
                     <div><h4>Email:</h4><small>{{student.email}}</small></div>
     
-                    <div class="left " style=" margin-left:41%;"><h4>Address:</h4><small>{{student.address}}</small></div>
+                    <div class="left " style=" margin-left:42%;"><h4>Address:</h4><small>{{student.address}}</small></div>
                 </div>
             </div>
             
@@ -91,12 +187,13 @@
     <section class="student_mobile_view">
         <div style="display: flex; justify-content: center; align-items: center;">
             <div class="Student-Profile ;">
-                <div style= "z-index:1; "  class=" container  text-white">
-                    <div class="col-md">
+                <div style= "z-index:1; "  class="Stdprofile container  text-white">
+                    <div class="col-md mt-5">
                         <h2>Dashboard</h2>
-
                         {% comment %} <span style= "margin-right:;"><img src="" alt="student image" class="users_img "></span> {% endcomment %}
-                        <span style= "margin-right:;"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img "></span>
+                        <div class="user_image_container"><img src="{{student.profile_pic.url}}" alt="student image" class="users_img ">
+                        <span><small>Click your smallicture for some actions</p></span>
+                        </div>
                         
                        
                         <div class="row">                    
@@ -123,9 +220,11 @@
                             </ul>
                         </div>
 
-                        </div>
-                        </div>
-                       
+                    </div>
+
+                    <li><a class="" href="{% url 'student:course-reg' %}">Course registration</a></li>   
+                
+                </div>                       
             </div>
             
         </div>
@@ -133,7 +232,6 @@
     </section>
     {% comment %} {% endfor %} {% endcomment %}
     <br>
-        <li><a class="mobile_CourseReg" href="{% url 'student:course-reg' %}">Course registration</a></li>   
     {% endif %}
 
 
@@ -175,5 +273,7 @@
             }
         })
 </script>
+
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
