@@ -149,13 +149,15 @@ def studentSignup(request):
 
 def dashboard(request):
     user = request.user
+    my_student = Student.objects.get(user=user)
+    studentCourse = my_student.studentcourse.all()
     if request.method == "POST":
         return render(request,'student/for_dashboard.html')
     if request.user.is_authenticated:
         student_exit = Student.objects.filter(user=user).exists()
         if student_exit:
             student = Student.objects.get(user=user)
-            context= {"student":student, "user":user }
+            context= {"student":student, "user":user,'studentCourse':studentCourse}
         else:
             context= { "user":user }
         return render(request,'student/for_dashboard.html', context)
@@ -287,8 +289,6 @@ def Course(request):
 
 def buyCourse(request):
     user = request.user
-    my_student = Student.objects.get(user=user)
-    studentCourse = my_student.studentcourse.all()
     # courses = ""
     # for idx, course in enumerate(studentCourse):
     #     if idx == 0:

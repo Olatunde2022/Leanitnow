@@ -235,8 +235,10 @@
 
                     </div>
 
-                    <li><a class="btn bg-secondary" style="color:#fd7e14;" href="{% url 'student:course-reg' %}">Course registration</a></li>   
-                
+                    <li><a class="btn bg-secondary mb-3" style="color:#fd7e14;" href="{% url 'student:course-reg' %}">Course registration</a></li>   
+                    {% for course in studentCourse %}
+                <div class="row ps-3">{{ course }}</div>
+                    {% endfor %}
                 </div>                       
             </div>
             
