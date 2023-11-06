@@ -11,17 +11,6 @@ from django.contrib.auth.models import User
 
 
 
-# def studentclick_view(request):
-#     if request.user.is_authenticated:
-#         return HttpResponseRedirect('afterlogin')
-#     return render(request,'student/studentclick.html')
-
-# def is_student(user):
-#     return user.groups.filter(name='STUDENT').exists()
-
-# @login_required(login_url='studentlogin')
-# @user_passes_test(is_student)
-
 
 def student_signup(request):
     userForm=forms.StudentUserForm()
@@ -42,7 +31,6 @@ def student_signup(request):
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
             return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
-        # return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
 
 
@@ -66,7 +54,6 @@ def studentSignup(request):
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
             return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
-        # return HttpResponseRedirect('studentlogin') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
     
 
@@ -86,9 +73,7 @@ def dashboard(request):
         return render(request,'student/for_dashboard.html', context)
     else:    
         messages.info(request, "You are not authorized, kindly login")
-        # return redirect(reverse('student:studentlogin'))
     return render(request,'student/for_dashboard.html')
-    # return render(request,'student/for_dashboard.html', context)
 
 def changeprofile(request):
     user = request.user
@@ -124,7 +109,6 @@ def changeprofile(request):
         student.save()
         messages.success(request, 'Your profile is updated successfully') 
         return redirect(reverse('student:student-dashboard')) #USING THIS REQUIRES APP NAME
-        # return HttpResponseRedirect('student-dashboard') #USING THIS DOES'NT REQUIRE APP NAME
     return render(request, 'student/change_profile.html',context )
 
 
@@ -140,7 +124,6 @@ def Login(request):
 				login(request, user)                           
 				messages.info(request, f"You are now logged in as {username}.")                              
 				return redirect(reverse('student:student-dashboard')) #USING THIS REQUIRES APP NAME
-				# return HttpResponseRedirect('student-dashboard') #USING THIS DOES'NT REQUIRE APP NAME
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
@@ -173,7 +156,6 @@ def Course(request):
     
     if request.method == 'POST':
         form = request.POST
-        # return render(request, 'student/courseReg.html')
         if request.user.is_authenticated: 
             student_exit = Student.objects.filter(user=user).exists()
             if student_exit:
@@ -219,9 +201,7 @@ def buyCourse(request):
         form = request.POST
         if request.user.is_authenticated: 
             student_exit = Student.objects.filter(user=user).exists()
-            if student_exit:
-                # my_student = Student.objects.get(user=user)
-                                
+            if student_exit:                                
                 receipt = request.FILES.get('receipt')
                 if receipt:
                     paymentProof =  Proof.objects.create(receipt=receipt)
