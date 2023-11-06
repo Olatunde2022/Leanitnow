@@ -123,7 +123,6 @@
     /* Media queries (Tablet) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .diff{
-        {% comment %} margin-left: 60%; {% endcomment %}
     }
     
     .student_actions{
@@ -254,12 +253,9 @@
         </div>
         
     </section>
-    {% comment %} {% endfor %} {% endcomment %}
     <br>
     {% endif %}
 
-
-{% comment %} {% include "student/footer.html" %} {% endcomment %}
   <script>
     
     const studentAction = document.querySelector('.student_actions')

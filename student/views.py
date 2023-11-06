@@ -1,103 +1,26 @@
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from .models import Student, myCourse, Proof
-from .forms import StudentForm
-from django.db.models import Sum
 from django.contrib.auth.models import Group
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required,user_passes_test
-from django.conf import settings
-from datetime import date, timedelta
-from . import models as QMODEL
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
-# from django.contrib.auth.forms import UserCreationForm 
 from django.contrib import messages
-from .forms import EditUserProfileForm
-from django.views import generic
-from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 
-# from django import forms
-# from teacher import models as TMODEL
-'''
-           
-                            
-                        
-                # course_names = request.POST.getlist('course_names')
-                course6 = form.get('WebDevelopment')
-                course7 = form.get('PythonDevelopment')
-                course8 = form.get('DevopTools')
-                course9 = form.get('DataAnalysis')
-                course10 = form.get('ML')
-                course11 = form.get('Cloudcomp')
-                course12 = form.get('ProjectManagement')
-                course13 = form.get('CyberSecurity')
-                course14 = form.get('BlockchainDevelopment')
-                course15 = form.get('DigitalMarketing')
-                course16 = form.get('UI_UXDesign')
-                course17 = form.get('NLP')
-                course18 = form.get('MobileDevelopment')
-                course19 = form.get('IoT')
-                
-                if course6:
-                    course=myCourse.objects.get(id=6)
-                    my_student.studentcourse.add(course)
-                if course7:
-                    course=myCourse.objects.get(id=7)
-                    my_student.studentcourse.add(course)
-                if course8:
-                    course=myCourse.objects.get(id=8)
-                    my_student.studentcourse.add(course)
-                if course9:
-                    course=myCourse.objects.get(id=9)
-                    my_student.studentcourse.add(course)
-                if course10:
-                    course=myCourse.objects.get(id=10)
-                    my_student.studentcourse.add(course)
-                if course11:
-                    course=myCourse.objects.get(id=11)
-                    my_student.studentcourse.add(course)
-                if course12:
-                    course=myCourse.objects.get(id=12)
-                    my_student.studentcourse.add(course)
-                if course13:
-                    course=myCourse.objects.get(id=13)
-                    my_student.studentcourse.add(course)
-                if course14:
-                    course=myCourse.objects.get(id=14)
-                    my_student.studentcourse.add(course)
-                if course15:
-                    course=myCourse.objects.get(id=15)
-                    my_student.studentcourse.add(course)
-                if course16:
-                    course=myCourse.objects.get(id=16)
-                    my_student.studentcourse.add(course)
-                if course17:
-                    course=myCourse.objects.get(id=17)
-                    my_student.studentcourse.add(course)
-                if course18:
-                    course=myCourse.objects.get(id=18)
-                    my_student.studentcourse.add(course)
-                if course19:
-                    course=myCourse.objects.get(id=19)
-                    my_student.studentcourse.add(course)
-                                        
-                my_student.save()
-'''
 
-#for showing signup/login button for student
-def studentclick_view(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')
-    return render(request,'student/studentclick.html')
 
-def is_student(user):
-    return user.groups.filter(name='STUDENT').exists()
+# def studentclick_view(request):
+#     if request.user.is_authenticated:
+#         return HttpResponseRedirect('afterlogin')
+#     return render(request,'student/studentclick.html')
 
-@login_required(login_url='studentlogin')
-@user_passes_test(is_student)
+# def is_student(user):
+#     return user.groups.filter(name='STUDENT').exists()
+
+# @login_required(login_url='studentlogin')
+# @user_passes_test(is_student)
 
 
 def student_signup(request):

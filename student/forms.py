@@ -26,20 +26,20 @@ class StudentForm(forms.ModelForm):
 #         fields = ['courseName']
 
 
-class EditUserProfileForm(UserChangeForm):
-    username = forms.CharField( required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your new username"}))
-    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your correct first name"}))
-    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your correct flast name"}))
-    mobile = forms.IntegerField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your new number"}))
-    address = forms.CharField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your new address"}))
-    profile_pic = forms.ImageField(allow_empty_file=True,  widget=forms.FileInput(attrs = {"class": "form-control"}))    
-    password = forms.PasswordInput()
+# class EditUserProfileForm(UserChangeForm):
+#     username = forms.CharField( required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your new username"}))
+#     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your correct first name"}))
+#     last_name = forms.CharField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your correct flast name"}))
+#     mobile = forms.IntegerField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your new number"}))
+#     address = forms.CharField(required=True, widget=forms.TextInput(attrs = {"class": "form-control", "placeholder":"Enter your new address"}))
+#     profile_pic = forms.ImageField(allow_empty_file=True,  widget=forms.FileInput(attrs = {"class": "form-control"}))    
+#     password = forms.PasswordInput()
    
-    class Meta:       
-        model=models.Student
-        fields=['address','mobile','profile_pic']
+#     class Meta:       
+#         model=models.Student
+#         fields=['address','mobile','profile_pic']
         
-    class Meta:
-        model = User
-        fields = ["username","first_name", "last_name"]
+#     class Meta:
+#         model = User
+#         fields = ["username","first_name", "last_name"]
         
