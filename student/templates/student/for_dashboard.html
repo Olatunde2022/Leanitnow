@@ -190,7 +190,16 @@
             
             
         <li><a class="btn btn-lg bg-info" href="{% url 'student:course-reg' %}">Course registration</a></li>   
+        
+        <div class="coursesRegistered">
+            <h3 class="text-white mt-3 ps-5" >Registered Courses</h3><hr>
+            {% for course in studentCourse %}
+            <div class="row ps-5 text-white">{{ course }}</div>
+                {% endfor %}
+            </div> 
+
         </div>
+    </div>
         
 
     </section>
