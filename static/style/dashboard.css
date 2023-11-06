@@ -120,7 +120,7 @@ display:none;
 .Student-Profile {
 margin-top: 10%;
 width:95% !important;
-height:500px;
+height:550px;
 background: #07182E;
 position: relative;
 display: flex;
@@ -132,8 +132,9 @@ border-radius: 20px;
 .Stdprofile{ 
 
 overflow-y: scroll;
+overflow-x: hidden;
 width:95%;
-height:480px;  
+height:520px;  
 
 padding-left: 1%;
 }
