@@ -289,14 +289,8 @@ def Course(request):
 
 def buyCourse(request):
     user = request.user
-    # courses = ""
-    # for idx, course in enumerate(studentCourse):
-    #     if idx == 0:
-    #         courses = course.coursename
-    #     elif idx == len(studentCourse) - 1:
-    #         courses = courses + " " + course.coursename
-    #     else:
-    #         courses = courses + " " + course.coursename + ","
+    my_student = Student.objects.get(user=user)
+    studentCourse = my_student.studentcourse.all()
     
     if request.method == 'POST':
         form = request.POST
