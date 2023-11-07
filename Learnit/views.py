@@ -14,11 +14,6 @@ def Index(request):
         Nationality = form.get('Nationality')
         Body = form.get('Body')
         
-        
-        # if not Name or not Nationality or not Body or not Email:
-        #     messages.error(request, "There is imcomplete field(s)")
-        #     return redirect(reverse(request, 'Learnit_Index_page'))
-        # try:
         review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
         review.save()
         messages.success(request, 'Thanks for reviewing us')
@@ -32,8 +27,7 @@ def Index(request):
             context = {'Review': fetch_review, "student": student, "user":user}
         else:
             context = {'Review': fetch_review, "user":user}
-        # return redirect(reverse(request, 'Learnit_Index_page'))
-        return render(request, 'Learnit/index.html', context) #USING THIS REQUIRES APP NAME
+        return render(request, 'Learnit/index.html', context) 
     return render(request, 'Learnit/index.html')
 
 def Courses(request):
@@ -53,18 +47,8 @@ def Reviews(request):
         Nationality = form.get('Nationality')
         Body = form.get('Body')
         
-        
-        # if not Name or not Nationality or not Body or not Email:
-        #     messages.error(request, "There is imcomplete field(s)")
-        #     return redirect(reverse(request, 'Learnit_Index_page'))
-        # try:
         review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
         review.save()
         messages.success(request, 'Thanks for reviewing us')
-        return redirect(reverse(request, 'Learnit_Index_page')) #USING THIS REQUIRES APP NAME
-        # except:
-        #     not Name or not Nationality or not Body or not Email 
-        #     messages.error(request, "There is imcomplete field(s)")
-        #     return redirect(reverse(request, 'Learnit_Index_page'))
-
+        return redirect(reverse(request, 'Learnit_Index_page'))      
     return render(request, 'Learnit/index.html')

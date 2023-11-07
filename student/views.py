@@ -15,7 +15,6 @@ from django.contrib.auth.models import User
 def student_signup(request):
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
-    # studentForm=UserCreationForm ()
     mydict={'userForm':userForm,'studentForm':studentForm}
     if request.method=='POST':
         userForm=forms.StudentUserForm(request.POST)
@@ -181,7 +180,6 @@ def Course(request):
                         courses = courses + " " + course.coursename + ","
                 messages.success(request, f'Courses selected:{courses}')
                 return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME
-        #     stdId = currentStudent.id
             else:
                 messages.error(request, 'The authenticated user does not exist in the category of STUDENT, kindly login first')
                 return render(request, 'student/courseReg.html')
