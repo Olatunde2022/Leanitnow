@@ -178,7 +178,7 @@ def Course(request):
                         courses = courses + " " + course.coursename
                     else:
                         courses = courses + " " + course.coursename + ","
-                messages.success(request, f'Courses selected:{courses}')
+                # messages.success(request, f'Courses selected:{courses}')
                 return redirect(reverse('student:payment')) #USING THIS REQUIRES APP NAME
             else:
                 messages.error(request, 'The authenticated user does not exist in the category of STUDENT, kindly login first')

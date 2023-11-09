@@ -1,0 +1,15 @@
+.row{
+    border-bottom: 1px solid blue;
+    border-right: 1px solid rgb(66, 66, 184);
+    padding-top: 1rem;
+    max-width: 100%;
+    background-color: rgb(195, 242, 226);
+    padding-left:2% ;
+}
+.row:nth-child(1){
+    border-top: 1px solid blue;
+}
+.course_reg{
+    max-width: 90%;
+    margin-left: 10%;
+}

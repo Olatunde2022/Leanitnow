@@ -294,7 +294,26 @@ small{
 .smgs{
   background: #20c997;
 }  
-
+  /* .success {    
+    margin-bottom: -30%;
+  background: #20c997;
+  width: 100vw;
+  padding-left: 10%;
+  padding-top: 2%;
+  font-family: monospace;
+  color: white;
+}
+  .error{
+    background: #20c997;
+    color:#f75842;
+    position: absolute;
+    top: 7.5%;
+    width: 100vw;
+    padding-left: 10%;
+    padding-top: 2%;
+    font-family: monospace;
+  } */
+  
 
   form{
     text-align: center;
