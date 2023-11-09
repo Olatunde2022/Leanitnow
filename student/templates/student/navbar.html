@@ -45,10 +45,12 @@
             <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
         </div>
     </nav><br><br>
-    
-{% for message in messages %}
-<p class="{{message.tags}}">{{message}} </p>
-{% endfor %}
+    <section class="smgs">
+      {% for message in messages %}
+      <p class="{{message.tags}}">{{message}} </p>
+      {% endfor %}
+
+    </section>
 
 <br><br>
 <script src="{% static 'js/main.js'%}"></script>      
