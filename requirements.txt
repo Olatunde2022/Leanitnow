@@ -3,6 +3,7 @@ distlib
 dj-database-url
 Django
 django-widget-tweaks
+environ
 gunicorn
 packaging
 Pillow
