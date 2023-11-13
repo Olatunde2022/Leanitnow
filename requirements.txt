@@ -2,8 +2,8 @@ asgiref
 distlib
 dj-database-url
 Django
+django-environ
 django-widget-tweaks
-environ
 gunicorn
 packaging
 Pillow
