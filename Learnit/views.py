@@ -39,16 +39,16 @@ def Contact(request):
 def About(request):
     return render(request, 'Learnit/about.html')
 
-def Reviews(request):
-    if request.method == 'POST':
-        form = request.POST
-        Name = form.get('Name')
-        Email = form.get('Email')
-        Nationality = form.get('Nationality')
-        Body = form.get('Body')
+# def Reviews(request):
+#     if request.method == 'POST':
+#         form = request.POST
+#         Name = form.get('Name')
+#         Email = form.get('Email')
+#         Nationality = form.get('Nationality')
+#         Body = form.get('Body')
         
-        review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
-        review.save()
-        messages.success(request, 'Thanks for reviewing us')
-        return redirect(reverse(request, 'Learnit_Index_page'))      
-    return render(request, 'Learnit/index.html')
+#         review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
+#         review.save()
+#         messages.success(request, 'Thanks for reviewing us')
+#         return redirect(reverse(request, 'Learnit_Index_page'))      
+#     return render(request, 'Learnit/index.html')
