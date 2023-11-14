@@ -17,18 +17,21 @@ def Index(request):
         review = myReview.objects.create(Name=Name, Email=Email, Nationality = Nationality, Body = Body)
         review.save()
         messages.success(request, 'Thanks for reviewing us')
-        return render(request, 'Learnit/index.html')
+        # return render(request, 'Learnit/index.html')
     
+    fetch_review = myReview.objects.all()
+    context = {'Review': fetch_review, "user":user}
     if request.user.is_authenticated:
-        fetch_review = myReview.objects.all()
         student_exit = Student.objects.filter(user=user).exists()
         if student_exit:
             student = Student.objects.get(user=user)
+            fetch_review = myReview.objects.all()
             context = {'Review': fetch_review, "student": student, "user":user}
         else:
             context = {'Review': fetch_review, "user":user}
         return render(request, 'Learnit/index.html', context) 
-    return render(request, 'Learnit/index.html')
+    # context = {'Review': fetch_review, "student": student, "user":user}
+    return render(request, 'Learnit/index.html', context)
 
 def Courses(request):
     return render(request, 'Learnit/courses.html')
