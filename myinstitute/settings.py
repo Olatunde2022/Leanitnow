@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,18 +83,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myinstitute.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# if DEBUG == True:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-# else:
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -109,13 +97,6 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.parse(env('DATABASE_URL'))    
 }
-    
-
-
-# database_url = os.environ.get("DATABASE_URL")
-# DATABASES["default"] = dj_database_url.parse(database_url)
-# postgres://carddb_user:crKSljI8l7PgyYVgtQze5N5dzl8e6h0x@dpg-cklum42v7m0s73dnb52g-a.oregon-postgres.render.com/carddb
-# DATABASES["default"] ='postgres://bllbwvtw:MYsTLPalyJ95JeFBwaxt1s_phv_drHaN@bubble.db.elephantsql.com/bllbwvtw'
 
 
 # Password validation
@@ -169,16 +150,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
-
-
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ojekab2580@gmail.com'
-EMAIL_HOST_PASSWORD = 'fnnvxhbbafrubzzj'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
 
 # EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 # EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
