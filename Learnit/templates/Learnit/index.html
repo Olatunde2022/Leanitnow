@@ -430,38 +430,37 @@ display:none;
         </div>
     </article>
 
-  {% for review in Review %}
-
-  {% if user.is_authenticated %}
+  {% for Review in Reviews %}
 
   <article class="testimonial swiper-slide">
+      {% if Review.student.profile_pic.url %}
     <div class="avater">
-            <img src="{{student.profile_pic.url}}" alt="student image">              
+            <img src="{{Review.student.profile_pic.url}}" alt="student image"> 
         </div>
-    <div class="testimonial__info">
-        <h5>{{request.user.first_name}} {{request.user.last_name}}</h5>   
-        <small>Student</small>       
+        {% else %}             
+        <span class="svg_span" style="padding:3% ;background:#6c63ff;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+        </span>
+        {% endif %}             
+        <div class="testimonial__info">
+            {% comment %} <h5>{{request.user.first_name}} {{request.user.last_name}}</h5>    {% endcomment %}
+            
+        {% if Review.student %}             
+        <h5>{{Review.student}}</h5>   
+        {% else %}             
+        <h5>{{Review.Name}}</h5>
+        {% endif %}
+
+        {% if user.is_authenticated %}             
+        <small>Student</small>  
+        {% else %}             
+        <small>Non-Student</small> 
+        {% endif %}        
         <div class="testimonial__body">
-            <p>{{review.Body}} </p>                       
+            <p>{{Review.Body}} </p>                       
         </div>
     </div>
 </article>
-{% else %} 
-<article class="testimonial swiper-slide">
-    <div class="avater"> 
-        <span class="svg_span" style="padding:3% ;background:#6c63ff;">
-                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
-            </span>
-        </div>
-        <div class="testimonial__info">
-            <h5>{{review.Name}}</h5>
-            <small>Non Student</small>
-            <div class="testimonial__body">
-                <p>{{review.Body}}</p>                       
-            </div>
-        </div>
-    </article> 
-    {% endif %}
     {% endfor %} 
     
     {% comment %} <article class="testimonial swiper-slide">
