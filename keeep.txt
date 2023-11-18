@@ -1,0 +1,2 @@
+mklink /D C:\Apache24\sites-enabled\mydomain.com.conf C:\Apache24\sites-available\mydomain.com.conf
+mklink /D C:\Apache24\sites-enabled\mydomain.com.conf C:\Users\USER\Desktop\IT Doc\Projects\myInstitution-django\learnitnow.onrender.com.conf
