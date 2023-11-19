@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Institute</title>    
     <link rel="stylesheet" href="{% static 'style/index.css'%}">
-    <link rel="stylesheet" href="{% static 'style/contact.css'%}">
 
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
@@ -36,9 +35,30 @@
         display:none;
         transition: all 400ms ease;
     }
-{% comment %} .dropdown:hover .new_review {        
-        display:block;        
-} {% endcomment %}
+    /* FORM */
+.contact__form{
+    display: flex;
+    flex-direction:column;
+    gap: 1rem;
+    margin-right: 4rem;
+}
+.form__name{
+    display: flex;
+    gap: 1rem;
+}
+input, textarea{
+    width: 86.5%;
+    padding: 1rem;
+    background: var(--color-bg);
+    color: var(--color-whte);
+}
+.contact__form .btn{
+    width: max-content;
+    margin-top:1rem ;
+    cursor: pointer;
+}
+
+
 
 .testimonial span{
     width:6rem;
@@ -100,8 +120,14 @@ display:none;
 .faq:nth-child(10) {
 display:none;
 }
-.review__btn{
-
+.new_review{
+    text-align:center;
+    margin-top:20px;  
+    border: 0px;
+    padding:2% 0 2% 5%; 
+    margin-left:5%;
+    display:none;
+    transition: all 400ms ease;
 }
 .Send_review{
     margin: 0% !important;
@@ -439,7 +465,7 @@ display:none;
         </div>
         {% else %}             
         <span class="svg_span" style="padding:3% ;background:#6c63ff;">
-            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#0df4f8}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
         </span>
         {% endif %}             
         <div class="testimonial__info">
@@ -490,9 +516,13 @@ display:none;
         <form method="POST" autocomplete="off" enctype="multipart/form-data" class="contact__form"> 
             {% csrf_token %}
                 <div class="form__name">
-                    <input type="text" name="Name" placeholder="Your name" required>    
-                    <input type="email" name="Email"  placeholder="Your Email" required >
+                    <input type="text" name="Name" placeholder="Your name" required>   
+                   </div>           
+                <div class="form__name">
                     <input type="text" name="Nationality" placeholder="Nationality?" required>
+                    </div>           
+                <div class="form__name">
+                    <input type="email" name="Email"  placeholder="Your Email" required >
                    </div>           
                 <textarea name="Body"  rows="7" placeholder="Your review here" required></textarea>
                 <div class="Send_review_div" style="margin-left:-20%;">

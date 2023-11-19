@@ -10,30 +10,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 
-
-
-def student_signup(request):
-    userForm=forms.StudentUserForm()
-    studentForm=forms.StudentForm()
-    mydict={'userForm':userForm,'studentForm':studentForm}
-    if request.method=='POST':
-        userForm=forms.StudentUserForm(request.POST)
-        studentForm=forms.StudentForm(request.POST,request.FILES)
-        
-        if userForm.is_valid() and studentForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            student=studentForm.save(commit=False)
-            student.user=user
-            student.save()
-            my_student_group = Group.objects.get_or_create(name='STUDENT')
-            my_student_group[0].user_set.add(user)
-            return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
-    return render(request,'student/studentsignup.html',context=mydict)
-
-
-
 def studentSignup(request):
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
@@ -201,12 +177,14 @@ def buyCourse(request):
             student_exit = Student.objects.filter(user=user).exists()
             if student_exit:                                
                 receipt = request.FILES.get('receipt')
-                if receipt:
-                    paymentProof =  Proof.objects.create(receipt=receipt)
+                student = request.user.student
+                if receipt or student:
+                    paymentProof =  Proof.objects.create(receipt=receipt, student=student)
                     paymentProof.save()
                     messages.success(request, "Your proof of payment has been uploaded")
                     return redirect(reverse('student:student-dashboard')) #USING THIS REQUIRES APP NAME
                 else:
+                    student = None
                     messages.error(request, "You must upload a payment proof")
                     return render(request, 'student/payment.html')
             else:

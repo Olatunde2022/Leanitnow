@@ -31,7 +31,7 @@ class Student(models.Model):
     
 class Proof(models.Model):
     receipt = models.ImageField()
-    student = models.ForeignKey(Student,null=True,blank=True,on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,on_delete=models.PROTECT, null=True,blank=True)
     uploadDateTime = models.DateTimeField(auto_now=True)
     
     def __str__(self):
