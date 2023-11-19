@@ -26,7 +26,7 @@ class Student(models.Model):
     def get_instance(self):
         return self
     def __str__(self):
-        return self.user.first_name
+        return f'{self.user.first_name} {self.user.last_name}'
     
     
 class Proof(models.Model):
