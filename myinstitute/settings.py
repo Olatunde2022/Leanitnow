@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
 import os
-
 from decouple import config
 import environ
 
@@ -33,9 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-# DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,17 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myinstitute.wsgi.application'
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'bllbwvtw',
-#         'USER': 'bllbwvtw',
-#         'PASSWORD': 'MYsTLPalyJ95JeFBwaxt1s_phv_drHaN',
-#         'HOST': 'bubble.db.elephantsql.com',
-#         'PORT': '5432',
-#     }
-# }
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.parse(env('DATABASE_URL'))    
@@ -141,9 +127,6 @@ STATIC_ROOT = BASE_DIR/ 'staticfiles'
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-
-
 
 
 MEDIA_URL = '/media/'
@@ -151,23 +134,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-
-# EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
-
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

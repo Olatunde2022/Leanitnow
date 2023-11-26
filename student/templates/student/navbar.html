@@ -31,16 +31,21 @@
     <nav>
         <div class="container nav_container">
             <a style="width:40%;" href="{% url 'Learnit_Index_page' %}"><img src="{% static 'image/LOGO1.png' %}" style="width:40%; padding-top:5%;" alt=""></a>
-            <ul class="nav__menu">
+            {% if user.is_authenticated%}
+            <ul class="nav__menu">                              
                 <li><a href="{% url 'Learnit_Index_page' %}">Home</a></li>
                 <li><a href="{% url 'Learnit_About_page' %}">About</a></li>
                 <li><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
-                <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li>                
-                <li><a href="{% url 'student:studentsignup' %}">Login/Register</a></li>                
-                {% if user.is_authenticated%}
-                <li class="dashb_link"><a href="{% url 'student:student-dashboard' %}">Dashboard</a></li>                
-                {% endif %}
+                <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li> 
+                <li class="dashb_link"><a href="{% url 'student:student-dashboard' %}">Dashboard</a></li> 
+                {% else %}               
+                <li><a href="{% url 'Learnit_Index_page' %}">Home</a></li>
+                <li><a href="{% url 'Learnit_About_page' %}">About</a></li>
+                <li><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
+                <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li> 
+                <li><a href="{% url 'student:studentsignup' %}">Login/Register</a></li> 
               </ul>
+              {% endif %}
             <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
             <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
         </div>
