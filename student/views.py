@@ -31,17 +31,35 @@ def studentSignup(request):
             return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
     
-
-def dashboard(request):
+'''
+def dashboard(request):    
+    if request.method == "POST":
+        user = request.user
+        return render(request,'student/for_dashboard.html')
+    if request.user.is_authenticated:
+        student_exit = Student.objects.filter(user=user).exists()
+        if student_exit:
+            # my_student = Student.objects.get(user=user)
+            student = Student.objects.get(user=user)
+            studentCourse = student.studentcourse.all()
+            context= {"student":student, "user":user,'studentCourse':studentCourse}
+        else:
+            context= { "user":user }
+        return render(request,'student/for_dashboard.html', context)
+    else:    
+        messages.info(request, "You are not authorized, kindly login")
+    return render(request,'student/for_dashboard.html')
+'''
+def studentDashboard(request):    
     user = request.user
     if request.method == "POST":
         return render(request,'student/for_dashboard.html')
     if request.user.is_authenticated:
-        my_student = Student.objects.get(user=user)
-        studentCourse = my_student.studentcourse.all()
         student_exit = Student.objects.filter(user=user).exists()
         if student_exit:
+            # my_student = Student.objects.get(user=user)
             student = Student.objects.get(user=user)
+            studentCourse = student.studentcourse.all()
             context= {"student":student, "user":user,'studentCourse':studentCourse}
         else:
             context= { "user":user }
