@@ -9,7 +9,22 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 import re
+import phonenumbers 
 
+
+
+
+def validate_phone_number(mobile):
+    try:
+        # Parse the phone number using the phonenumbers library
+        parsed_mobile_number = phonenumbers.parse(mobile, None)
+        # Check if the phone number is valid
+        if phonenumbers.is_valid_number(parsed_mobile_number):
+            return True
+        else:
+            return False
+    except phonenumbers.NumberParseException:
+        return False
 
 def validate_password(password):
     # Define regular expression patterns for required characters
@@ -19,16 +34,17 @@ def validate_password(password):
         # 'digit': r'[0-9]',
         'special': r'[!@#$%^&*()_+-]'
     }
-
     # Check if the password contains all required characters
     for char_type, pattern in required_char_patterns.items():
         if not re.search(pattern, password):
             return False
-
     # If all required characters are present, return True
     return True
 
+
+
 def studentSignup(request):
+    user = request.user
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
     # studentForm=UserCreationForm ()
@@ -39,6 +55,7 @@ def studentSignup(request):
         username = request.POST['username']
         password = request.POST['password']
         email = request.POST['email']
+        mobile = request.POST['mobile']
         
         if len(username) < 8:
             messages.error(request, 'Username must be a minimum of 8 character')
@@ -57,6 +74,11 @@ def studentSignup(request):
         if not validate_password(password):
             # Display an error message if the password is invalid
             messages.error(request, 'Password must contain at least one uppercase letter, one lowercase letter and one special character.')
+            return render(request,'student/studentsignup.html',context=mydict)
+        # Validate the mobile number using the validate_mobile_number function
+        if not validate_phone_number(mobile):
+            # Display an error message if the mobile number is invalid
+            messages.error(request, 'Mobile number must start with a valid country code and contain only digits.')
             return render(request,'student/studentsignup.html',context=mydict)
         if not userForm.is_valid() and not studentForm.is_valid():
             messages.error(request, 'Your details are not valid')

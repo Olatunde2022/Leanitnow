@@ -6,6 +6,7 @@ django-environ
 django-widget-tweaks
 gunicorn
 packaging
+phonenumbers
 Pillow
 platformdirs
 psycopg2-binary
