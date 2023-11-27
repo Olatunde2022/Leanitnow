@@ -8,7 +8,25 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+import re
 
+
+def validate_password(password):
+    # Define regular expression patterns for required characters
+    required_char_patterns = {
+        'uppercase': r'[A-Z]',
+        'lowercase': r'[a-z]',
+        # 'digit': r'[0-9]',
+        'special': r'[!@#$%^&*()_+-]'
+    }
+
+    # Check if the password contains all required characters
+    for char_type, pattern in required_char_patterns.items():
+        if not re.search(pattern, password):
+            return False
+
+    # If all required characters are present, return True
+    return True
 
 def studentSignup(request):
     userForm=forms.StudentUserForm()
@@ -18,17 +36,40 @@ def studentSignup(request):
     if request.method=='POST':
         userForm=forms.StudentUserForm(request.POST)
         studentForm=forms.StudentForm(request.POST,request.FILES)
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
         
-        if userForm.is_valid() and studentForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            student=studentForm.save(commit=False)
-            student.user=user
-            student.save()
-            my_student_group = Group.objects.get_or_create(name='STUDENT')
-            my_student_group[0].user_set.add(user)
-            return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
+        if len(username) < 8:
+            messages.error(request, 'Username must be a minimum of 8 character')
+            return render(request,'student/studentsignup.html',context=mydict)
+        username_exit = User.objects.filter(username=username).exists()
+        if username_exit:
+            messages.error(request, 'Username already taken')
+            return render(request,'student/studentsignup.html',context=mydict)
+        email_exit = User.objects.filter(email=email).exists()
+        if email_exit:
+            messages.error(request, 'email provided already in use')
+            return render(request,'student/studentsignup.html',context=mydict)
+        if username == password:
+            messages.error(request, 'email and password can not be the same')
+            return render(request,'student/studentsignup.html',context=mydict)
+        if not validate_password(password):
+            # Display an error message if the password is invalid
+            messages.error(request, 'Password must contain at least one uppercase letter, one lowercase letter and one special character.')
+            return render(request,'student/studentsignup.html',context=mydict)
+        if not userForm.is_valid() and not studentForm.is_valid():
+            messages.error(request, 'Your details are not valid')
+            return render(request,'student/studentsignup.html',context=mydict)
+        user=userForm.save()
+        user.set_password(user.password)
+        user.save()
+        student=studentForm.save(commit=False)
+        student.user=user
+        student.save()
+        my_student_group = Group.objects.get_or_create(name='STUDENT')
+        my_student_group[0].user_set.add(user)
+        return redirect(reverse('student:studentlogin')) #USING THIS REQUIRES APP NAME
     return render(request,'student/studentsignup.html',context=mydict)
     
 '''
