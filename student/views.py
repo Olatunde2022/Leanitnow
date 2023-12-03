@@ -10,6 +10,13 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 import re
 import phonenumbers 
+# from django.contrib.auth.forms import password_reset_form
+# from django.contrib.auth.forms import SetPasswordForm
+# from django.contrib.auth.tokens import password_reset_is_valid
+# from django.utils.encoding import force_str
+# from django.utils.http import urlsafe_base64_decode
+# from django.contrib.auth import get_user_model
+
 
 
 
@@ -193,6 +200,36 @@ def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
 	return redirect("student:studentlogin")
+
+def password_reset(request):
+    if request.method == 'POST':
+        form = password_reset_form(request.POST)
+        if form.is_valid():
+            # Send password reset email
+            form.save()
+            messages.success(request, 'Password reset email sent.')
+            return redirect("student:studentlogin")
+    else:
+        form = password_reset_form()
+    return render(request, 'password_reset.html', {'form': form})
+
+def password_reset_confirm(request, uidb64, token):
+    # User = get_user_model()
+    uid = force_str(urlsafe_base64_decode(uidb64))
+    user = User._default_manager.get(pk=uid)
+    if user is not None and user.is_active and password_reset_is_valid(user, token):
+        form = SetPasswordForm(user)
+        if request.method == 'POST':
+            form = SetPasswordForm(user, request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Password reset successful.')
+                return redirect("student:studentlogin")
+        else:
+            form = SetPasswordForm(user)
+        return render(request, 'password_reset_confirm.html', {'form': form})
+    else:
+        return render(request, 'password_reset_invalid.html')
 
 
 def ForgotPassord(request):
